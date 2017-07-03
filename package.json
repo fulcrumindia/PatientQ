@@ -1,0 +1,24 @@
+{
+  "name": "patientq",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fulcrumindia/PatientQ.git"
+  },
+  "dependencies": {
+    "express": "*",
+    "express-handlebars": "*",
+    "mongoose": "^4.10.8"
+  },
+  "author": "Lavy Toteza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fulcrumindia/PatientQ/issues"
+  },
+  "homepage": "https://github.com/fulcrumindia/PatientQ#readme"
+}
