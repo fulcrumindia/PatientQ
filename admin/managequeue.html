@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">
+    <title>Elite Hospital Admin Template - Hospital admin dashboard web app kit</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../plugins/bower_components/bootstrap-extension/css/bootstrap-extension.css" rel="stylesheet">
+    <!-- Menu CSS -->
+    <link href="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
+    <!-- animation CSS -->
+    <link href="css/animate.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- color CSS -->
+    <link href="css/colors/megna.css" id="theme" rel="stylesheet">
+    <link href="../plugins/bower_components/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
+    <link href="../plugins/bower_components/switchery/dist/switchery.min.css" rel="stylesheet" />
+    <link href="../plugins/bower_components/timepicker/bootstrap-timepicker.min.css" rel="stylesheet">
+    <link href="../plugins/bower_components/clockpicker/dist/jquery-clockpicker.min.css" rel="stylesheet">
+    <link href="../plugins/bower_components/morrisjs/morris.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<style type="text/css">
+    input#name {
+    width: 80px;
+    }
+    input#phone {
+        width: 80px;
+    }
+    input#symptom {
+        width: 400px;
+    }
+</style>
+    
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-19175540-9', 'auto');
+    ga('send', 'pageview');
+    </script>
+</head>
+
+<body class="fix-sidebar">
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="cssload-speeding-wheel"></div>
+    </div>
+    <div id="wrapper">
+        <!-- Top Navigation -->
+        <nav class="navbar navbar-default navbar-static-top m-b-0">
+            <div class="navbar-header"> <a class="navbar-toggle hidden-sm hidden-md hidden-lg " href="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse"><i class="ti-menu"></i></a>
+                <div class="top-left-part"><a class="logo" href="index.html"><b><img src="../plugins/images/eliteadmin-logo.png" alt="home" /></b><span class="hidden-xs"><strong>Summit</strong>Pacific</span></a></div>
+                <ul class="nav navbar-top-links navbar-left hidden-xs">
+                    <li><a href="javascript:void(0)" class="open-close hidden-xs waves-effect waves-light"><i class="icon-arrow-left-circle ti-menu"></i></a></li>
+                    <li>
+                        <form role="search" class="app-search hidden-xs">
+                            <input type="text" placeholder="Search..." class="form-control"> <a href=""><i class="fa fa-search"></i></a> </form>
+                    </li>
+                </ul>
+                
+            </div>
+            <!-- /.navbar-header -->
+            <!-- /.navbar-top-links -->
+            <!-- /.navbar-static-side -->
+        </nav>
+        <!-- End Top Navigation -->
+        <!-- Left navbar-header -->
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse slimscrollsidebar">
+                <ul class="nav" id="side-menu">
+                    <li class="sidebar-search hidden-sm hidden-md hidden-lg">
+                        <!-- input-group -->
+                        <div class="input-group custom-search-form">
+                            <input type="text" class="form-control" placeholder="Search..."> <span class="input-group-btn">
+            <button class="btn btn-default" type="button"> <i class="fa fa-search"></i> </button>
+            </span> </div>
+                        <!-- /input-group -->
+                    </li>
+                    <!-- <li class="user-pro">
+                        <a href="#" class="waves-effect"><img src="../plugins/images/users/d1.jpg" alt="user-img" class="img-circle"> <span class="hide-menu">Dr. Ken Dietrich, MD<span class="fa arrow"></span></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="my-profile.html"><i class="ti-user"></i> My Profile</a></li>
+                            <li><a href="inbox.html"><i class="ti-email"></i> Inbox</a></li>
+                            <li><a href="account-setting.html"><i class="ti-settings"></i> Account Setting</a></li>
+                            <li><a href="javascript:void(0)"><i class="fa fa-power-off"></i> Logout</a></li>
+                        </ul>
+                    </li> -->
+                    <!-- <li> <a href="javascript:void(0);" class="waves-effect"><i class="linea-icon linea-basic fa-fw text-danger" data-icon="7"></i> <span class="hide-menu text-danger">Help <span class="fa arrow"></a>
+                        <ul class="nav nav-second-level">
+                            <li> <a href="../eliteadmin-hospital/index.html">Tutorial</a> </li>
+                            <li> <a href="support.html">Support</a> </li>
+                            
+                        </ul>
+                    </li> -->
+                    <li> <a href="managequeue.html" class="waves-effect active"><i data-icon="P" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Queue Manager</span></a> </li>
+                    <li> <a href="queuebuilder.html" class="waves-effect"><i data-icon="P" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Queue Builder</span></a> </li>
+                    <li> <a href="queuesetting.html" class="waves-effect "><i data-icon="P" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Queue Settings</span></a> </li>
+                    <li> <a href="store-timing.html" class="waves-effect"><i data-icon="P" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Scheduler</span></a> </li>
+                    <li> <a href="advertising.html" class="waves-effect"><i data-icon="P" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Digital Display</span></a> </li>
+                    <li> <a href="app.html" class="waves-effect"><i data-icon="P" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">App Kiosk Setting</span></a> </li>
+                   
+                    <li> <a href="sent-log.html" class="waves-effect"><i data-icon="P" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Sent Logs</span></a> </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Left navbar-header end -->
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row bg-title">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title">Patient Flow Controls</h4> </div>
+                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                        <ol class="breadcrumb">
+                            <li><a href="#">Home</a></li>
+                            <li class="active">ER Queue Maanager</li>
+                        </ol>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- /row -->
+                <div class="row equal-height">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="white-box">
+                            <p class="title-style">Patient per Hour</p>
+                            <p class="text-center"><b>1 In Queue</b></p>
+                            <p class="text-center"><a href="javascript:void(0)" class="btn btn-danger btn-rounded" data-toggle="modal" data-target=".bs2-example-modal-lg">Control Patient Flow</a></p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="white-box">
+                            <p class="title-style">Current Availability</p>
+                            <div class="text-center time-container">
+                                <button type="button" class="btn btn-danger btn-circle btn-previous"><i class="fa fa-arrow-circle-o-left"></i> </button>
+                                <div class="item active">
+                                    <button type="button" class="btn btn-info btn-circle">12a</button><button type="button" class="btn btn-info btn-circle">1a</button><button type="button" class="btn btn-info btn-circle">2a</button><button type="button" class="btn btn-info btn-circle">3a</button>
+                                    <br><br>
+                                    <button type="button" class="btn btn-info btn-circle time-cancel"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle time-cancel"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle time-cancel"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle time-cancel"><i class="fa fa-repeat"></i></button>
+                                </div>
+                                <div class="item ">
+                                    <button type="button" class="btn btn-info btn-circle">4a</button><button type="button" class="btn btn-info btn-circle">5a</button><button type="button" class="btn btn-info btn-circle">6a</button><button type="button" class="btn btn-info btn-circle">7a</button>
+                                    <br><br>
+                                    <button type="button" class="btn btn-info btn-circle time-cancel"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle time-cancel"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle time-cancel"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle time-cancel"><i class="fa fa-repeat"></i></button>
+                                </div>
+                                <div class="item">
+                                    <button type="button" class="btn btn-info btn-circle">8a</button><button type="button" class="btn btn-info btn-circle">9a</button><button type="button" class="btn btn-info btn-circle">10a</button><button type="button" class="btn btn-info btn-circle">11a</button>
+                                    <br><br>
+                                    <button type="button" class="btn btn-info btn-circle time-cancel"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle time-cancel"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle time-cancel"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle time-cancel"><i class="fa fa-repeat"></i></button>
+                                </div>
+                                <div class="item">
+                                    <button type="button" class="btn btn-info btn-circle">12p</button><button type="button" class="btn btn-info btn-circle">1p</button><button type="button" class="btn btn-info btn-circle">2p</button><button type="button" class="btn btn-info btn-circle">3p</button>
+                                    <br><br>
+                                    <button type="button" class="btn btn-info btn-circle time-cancel"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle time-cancel"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle time-cancel"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle time-cancel"><i class="fa fa-repeat"></i></button>
+                                </div>
+                                <div class="item">
+                                    <button type="button" class="btn btn-info btn-circle">4p</button><button type="button" class="btn btn-info btn-circle">5p</button><button type="button" class="btn btn-info btn-circle">6p</button><button type="button" class="btn btn-info btn-circle">7p</button>
+                                    <br><br>
+                                    <button type="button" class="btn btn-info btn-circle time-cancel"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle time-cancel"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle time-cancel"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle time-cancel"><i class="fa fa-repeat"></i></button>
+                                </div>
+                                <div class="item">
+                                    <button type="button" class="btn btn-info btn-circle">8p</button><button type="button" class="btn btn-info btn-circle">9p</button><button type="button" class="btn btn-info btn-circle">10p</button><button type="button" class="btn btn-info btn-circle">11p</button>
+                                    <br><br>
+                                    <button type="button" class="btn btn-info btn-circle time-cancel"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle time-cancel"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle time-cancel"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle time-cancel"><i class="fa fa-repeat"></i></button>
+                                </div>
+                                <button type="button" class="btn btn-danger btn-circle btn-next"><i class="fa fa-arrow-circle-o-right"></i></button>
+                            </div>
+                            <br>
+                            <p class="text-center"><a href="javascript:void(0)" class="btn btn-danger btn-rounded" data-toggle="modal" data-target=".bs3-example-modal-lg">Edit Scheduler</a></p>
+
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="white-box">
+                            <p class="title-style">Current Wait Time</p>
+                            <p class="text-center"><b>30 Min</b></p>
+                            <p class="text-center"><a href="javascript:void(0)" class="btn btn-danger btn-rounded" data-toggle="modal" data-target=".bs4-example-modal-lg">Update Wait Time</a></p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="white-box">
+                            
+                            <p><b>Urgent</b><b class="pull-right">1:10</b></p>
+                            <p><b>Stable</b><b class="pull-right">2:10</b></p>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="white-box search-field">
+                            <h3 class="box-title">Patient Queue Manager</h3>
+                            <input id="name" type="text" name="" placeholder="Name"><input id="assigned" type="text" name="" placeholder="Assigned Wait Time"><input id="phone" type="text" name="" placeholder="Phone"><input id="symptom" type="text" name="" placeholder="symptom"><input type="text" name="" placeholder="Triage Status">
+                            <a href="javascript:void(0)" class="btn btn-danger btn-rounded ">Submit</a>
+                            <br><br>
+                            <form role="search" class="app-search hidden-xs">
+                            <input type="text" name="" placeholder="Search by customer Name or Phone number"> </form>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                   
+                    
+                    <div class="col-sm-12">
+                        <div class="white-box">
+                            <h3 class="box-title">New Patient Queue 
+                            <!-- <a href="add-queue.html" target="_blank" class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">Add Queue</a> -->
+                            </h3>
+                            <div class="table-responsive">
+                                <table class="table color-bordered-table danger-bordered-table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th></th>
+                                            <th>Name</th>
+                                            <th>Visit Time</th>
+                                            <th>Message</th>
+                                            <th>Assign Triage Status</th>
+                                            <th>Wait Time</th>
+                                            <th>Time Enter Portal</th>
+                                            <th>Symptoms</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>
+                                                <select class="tirage-status">
+                                                    <option>Select</option>
+                                                    <option class="urgency">Checked In</option>
+                                                    <option class="less-urgency">Treatment</option>
+                                                </select>
+                                                <br><br>
+                                                <select>
+                                                    <option>Dr. Brown</option>
+                                                    <option>Dr. John</option>
+                                                    <option>Dr. Mary</option>
+                                                </select>
+                                            </td>
+                                            <td><a href="javascript:void(0)" data-toggle="modal" data-target=".bs1-example-modal-lg">New Patient</a></td>
+                                            <td>10:20 PM</td>
+                                            <td><a href="javascript:void(0)" class="btn btn-danger btn-rounded model_img" data-toggle="modal" data-target=".bs-example-modal-lg">Message</a></td>
+                                            <td>
+                                                <select class="form-control tirage-status emergency">
+                                                    <option class="emergency">Emergency</option>
+                                                    <option class="urgency">Urgency</option>
+                                                    <option class="less-urgency">Less Urgency</option>
+                                                    <option class="non-urgency">Non Urgency</option>
+                                                </select>
+                                            </td>
+                                            <td>00:05</td>
+                                            <td>10:06PM</td>
+                                            <td>Stomach ache, Bleeding from ears</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>
+                                                <select class="tirage-status">
+                                                    <option>Select</option>
+                                                    <option class="urgency">Checked In</option>
+                                                    <option class="less-urgency">Treatment</option>
+                                                </select>
+                                                <br><br>
+                                                <select>
+                                                    <option>Dr. Brown</option>
+                                                    <option>Dr. John</option>
+                                                    <option>Dr. Mary</option>
+                                                </select>
+                                            </td>
+                                            <td><a href="javascript:void(0)" data-toggle="modal" data-target=".bs1-example-modal-lg">New Patient</a></td>
+                                            <td>10:20 PM</td>
+                                            <td><a href="javascript:void(0)" class="btn btn-danger btn-rounded model_img" data-toggle="modal" data-target=".bs-example-modal-lg">Message</a></td>
+                                            <td>
+                                                <select class="form-control tirage-status less-urgency">
+                                                    <option class="emergency">Emergency</option>
+                                                    <option class="urgency">Urgency</option>
+                                                    <option class="less-urgency" selected>Less Urgency</option>
+                                                    <option class="non-urgency">Non Urgency</option>
+                                                </select>
+                                            </td>
+                                            <td>00:05</td>
+                                            <td>10:06PM</td>
+                                            <td>Stomach ache, Bleeding from ears</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>
+                                                <select class="tirage-status">
+                                                    <option>Select</option>
+                                                    <option class="urgency">Checked In</option>
+                                                    <option class="less-urgency">Treatment</option>
+                                                </select>
+                                                <br><br>
+                                                <select>
+                                                    <option>Dr. Brown</option>
+                                                    <option>Dr. John</option>
+                                                    <option>Dr. Mary</option>
+                                                </select>
+                                                
+                                            </td>
+                                            <td><a href="javascript:void(0)" data-toggle="modal" data-target=".bs1-example-modal-lg">New Patient</a></td>
+                                            <td>10:20 PM</td>
+                                            <td><a href="javascript:void(0)" class="btn btn-danger btn-rounded model_img" data-toggle="modal" data-target=".bs-example-modal-lg">Message</a></td>
+                                            <td>
+                                                <select class="form-control tirage-status urgency">
+                                                    <option class="emergency">Emergency</option>
+                                                    <option class="urgency" selected>Urgency</option>
+                                                    <option class="less-urgency">Less Urgency</option>
+                                                    <option class="non-urgency">Non Urgency</option>
+                                                </select>
+                                            </td>
+                                            <td>00:05</td>
+                                            <td>10:06PM</td>
+                                            <td>Stomach ache, Bleeding from ears</td>
+                                        </tr>
+                                        
+                                                                        
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class="row">
+                   
+                    
+                    <div class="col-sm-12">
+                        <div class="white-box">
+                            <h3 class="box-title">Treatment Queue</h3>
+                            <div class="table-responsive">
+                                <table class="table color-bordered-table danger-bordered-table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th></th>
+                                            <th>Name</th>
+                                            <th>Visit Time</th>
+                                            <th>Message</th>
+                                            <th>Referred</th>
+                                            <th>Wait Time</th>
+                                            <th>Time Enter Portal</th>
+                                            <th>Symptoms / Treatment</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>
+                                                <select>
+                                                    <option>Treating</option>
+                                                    
+                                                </select>
+                                                <br><br>
+                                                <select>
+                                                    <option>Dr. Brown</option>
+                                                    <option>Dr. John</option>
+                                                    <option>Dr. Mary</option>
+                                                </select>
+                                            </td>
+                                            <td><a href="javascript:void(0)" data-toggle="modal" data-target=".bs1-example-modal-lg">New Patient</a></td>
+                                            <td>10:20 PM</td>
+                                            <td><a href="javascript:void(0)" class="btn btn-danger btn-rounded model_img" data-toggle="modal" data-target=".bs-example-modal-lg">Message</a></td>
+                                            <td>
+                                                <select class="form-control tirage-status">
+                                                    <option>PCP</option>
+                                                    <option>CLINIC</option>
+                                                    <option>SPECIALIST</option>
+                                                    <option>ADMIN</option>
+                                                </select>
+
+                                            </td>
+                                            <td>00:05</td>
+                                            <td>10:06PM</td>
+                                            <td class="treatment-container"><p class="treatment-text">Stomach ache, Bleeding from ears</p>
+                                            <span class="fa fa-pencil pull-right treatment-pencil"></span>
+                                            <textarea class="treatment-textarea hidden"></textarea>
+                                            <br>
+                                            <button class="hidden treatment-save">Save</button><button class="hidden treatment-cancel">Cancel</button>
+                                            </td>
+                                        </tr>
+                                                                            
+
+                                       
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            <!-- /.container-fluid -->
+            <footer class="footer text-center"> 2017 &copy; Summit Pacific Patient Q by Fulcrum Design,LLC </footer>
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+
+    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    
+                </div>
+                <div class="modal-body">
+
+                    <form>
+                        <textarea class="form-control" placeholder="Message"></textarea>
+                        <br>
+                        <button class="btn btn-danger">Send</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger waves-effect text-left" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+
+    <div class="modal fade bs1-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <br>
+                    <h3>Milford Clinic<a href="javascript:void(0)" class="btn btn-danger pull-right">Print</a></h3>
+                    <div class="col-md-6"><p>Patient: John Doe</p><p>Confirmation #: 5217a-bffab-a8d</p></div>
+                    <div class="col-md-6"><p class="text-right">Visit: 08/23/2013 at 2:10 pm</p></div>
+                </div>
+                <div class="modal-body">
+                    <div class="sttabs tabs-style-bar">
+                                    <nav>
+                                        <ul>
+                                            <li><a href="#section-bar-1" class="sticon"><span>Visit</span></a></li>
+                                            <li><a href="#section-bar-2" class="sticon"><span>Comments</span></a></li>
+                                            
+                                        </ul>
+                                    </nav>
+                                    <div class="content-wrap">
+                                        <section id="section-bar-1">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                <h4>Patient:</h4><p>Male<br>12/05/1975 (37)<br>(555) 555-5555 (cell)<br><a href="javascript:void(0)">gmail@gmail.com</a></p>
+                                                <h4>Symptoms:</h4>
+                                                <p>Fever,Caugh,sore throat</p>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <h4>Visit Time:</h4>
+                                                    <p>08/23/2013<br>2:10 PM</p>
+                                                </div>
+                                            </div>
+                                        </section>
+                                        <section id="section-bar-2">
+                                            <h2>Tabbing 2</h2>
+                                        </section>
+                                    </div>
+                                    <!-- /content -->
+                                </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger waves-effect text-left" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+    <div class="modal fade bs2-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h3>Update Throttle</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <p class="title-style text-center">Update Throttle</p>
+                    <form>
+                        <div class="form-group">
+                            <p>Number Of Reservation allowed per hour:</p>
+                            <select class="form-control">
+                                <option>60 Reservations</option>
+                                <option>50 Reservations</option>
+                                <option>40 Reservations</option>
+                                <option>30 Reservations</option>
+                                <option>20 Reservations</option>
+                                <option>10 Reservations</option>
+                                <option>5 Reservations</option>
+                                <option>3 Reservations</option>
+                                <option>2 Reservations</option>
+
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-danger waves-effect text-left" data-dismiss="modal">Save</button>
+                    <button type="button" class="btn btn-danger waves-effect text-left" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger waves-effect text-left" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+
+
+<div class="modal fade bs3-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                
+            </div>
+            <div class="modal-body">
+                <table class="table timing-cancel">
+                    <thead><tr><th></th><th>12a 1a 2a 3a</th><th>4a 5a 6a 7a</th><th>8a 9a 10a 11a</th><th>12p 1p 2p 3p</th><th>4p 5p 6p 7p</th><th>8p 9p 10p 11p</th></tr></thead>
+                    <tbody>
+                        <tr><td>Monday</td><td><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button></td><td><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button></td><td><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button></td><td><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button></td><td><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button></td><td><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button></td></tr>
+                        <tr><td>Tuseday</td><td><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button></td><td><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button></td><td><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button></td><td><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button></td><td><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button></td><td><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button></td></tr><tr><td>Wednesday</td><td><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button></td><td><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button></td><td><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button></td><td><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button></td><td><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button></td><td><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button></td></tr><tr><td>Thrusday</td><td><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button></td><td><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button></td><td><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button></td><td><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button></td><td><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button></td><td><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button></td></tr><tr><td>Friday</td><td><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button></td><td><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button></td><td><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button></td><td><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button></td><td><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button></td><td><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button><button type="button" class="btn btn-info btn-circle"><i class="fa fa-repeat"></i> </button></td></tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger waves-effect text-left" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+
+<div class="modal fade bs4-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h3>Update Throttle</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <p class="title-style text-center">Update Wait Time</p>
+                    <form>
+                        <div>
+                            <p>Current Wait time for the Tsago Clinic ER:</p>
+                            <div class="form-group">
+                                
+                                <div class="input-group clockpicker col-md-12 " data-placement="bottom" data-align="top" data-autoclose="true">
+                                    <input type="text" class="form-control" value="00:00">
+                                    <span class="input-group-addon"> <span class="glyphicon glyphicon-time"></span> </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <br><br>
+
+                            <button type="button" class="btn btn-danger waves-effect text-left" data-dismiss="modal">Save</button>
+                    <button type="button" class="btn btn-danger waves-effect text-left" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger waves-effect text-left" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+    <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="bootstrap/dist/js/tether.min.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../plugins/bower_components/bootstrap-extension/js/bootstrap-extension.min.js"></script>
+    <!-- Menu Plugin JavaScript -->
+    <script src="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+    <!--slimscroll JavaScript -->
+    <script src="js/jquery.slimscroll.js"></script>
+    <!--Wave Effects -->
+    <script src="js/waves.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="js/custom.min.js"></script>
+    <!-- jQuery peity -->
+    <script src="../plugins/bower_components/peity/jquery.peity.min.js"></script>
+    <script src="../plugins/bower_components/peity/jquery.peity.init.js"></script>
+    <!--Style Switcher -->
+    <script src="../plugins/bower_components/switchery/dist/switchery.min.js"></script>
+    <script>
+    jQuery(document).ready(function() {
+        // Switchery
+        var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+        $('.js-switch').each(function() {
+            new Switchery($(this)[0], $(this).data());
+
+        });
+        // For select 2
+
+        $(document).on('change','.tirage-status',function(){
+            var cl = $(this).find("option:selected").attr('class');
+            $(this).removeClass('emergency');
+            $(this).removeClass('urgency');
+            $(this).removeClass('less-urgency');
+            $(this).removeClass('non-urgency');
+            $(this).addClass(cl);
+        });
+
+       $(document).on('click','.timing-cancel .btn-circle',function(){
+            $(this).toggleClass('btn-info');
+            $(this).toggleClass('btn-warning');
+            $(this).children().toggleClass('fa-repeat');
+            $(this).children().toggleClass('fa-undo');
+       });
+
+       $(document).on('click','.time-container .time-cancel',function(){
+            $(this).toggleClass('btn-info');
+            $(this).toggleClass('btn-warning');
+            $(this).children().toggleClass('fa-repeat');
+            $(this).children().toggleClass('fa-undo');
+       });
+       
+
+
+    });
+
+    $(document).ready(function(){
+        if ($( ".item.active" ).index() == 1) {
+            $('.btn-previous').attr('disabled','disabled');
+        } 
+        if ($( ".item.active" ).index() == 6) {
+            $('.btn-next').attr('disabled','disabled');
+        }
+        
+    });
+    $(document).on('click','.btn-next',function(){
+        var index = $( ".item.active" ).index();
+        $('.btn-previous').removeAttr('disabled');
+        $( ".item.active" ).removeClass('active');
+        $('.time-container .item').eq(index).addClass('active');
+        if ($( ".item.active" ).index() == 1) {
+            $('.btn-previous').attr('disabled','disabled');
+        } 
+        if ($( ".item.active" ).index() == 6) {
+            $('.btn-next').attr('disabled','disabled');
+        }
+    });
+    $(document).on('click','.btn-previous',function(){
+        var index = $( ".item.active" ).index();
+        $('.btn-next').removeAttr('disabled');
+        $( ".item.active" ).removeClass('active');
+        $('.time-container .item').eq(index-2).addClass('active');
+        if ($( ".item.active" ).index() == 1) {
+            $('.btn-previous').attr('disabled','disabled');
+        } 
+        if ($( ".item.active" ).index() == 6) {
+            $('.btn-next').attr('disabled','disabled');
+        }
+    });
+    $(document).on('click','.treatment-pencil',function(){
+        $('.treatment-pencil').hide();
+        $('.treatment-text').hide();
+        $('.treatment-textarea').removeClass('hidden');
+        $('.treatment-container button').removeClass('hidden');
+    });
+    $(document).on('click','.treatment-cancel',function(){
+        $('.treatment-pencil').show();
+        $('.treatment-text').show();
+        $('.treatment-textarea').addClass('hidden');
+        $('.treatment-container button').addClass('hidden');
+    });
+    $(document).on('click','.treatment-save',function(){
+        $('.treatment-text').text($('.treatment-textarea').val());
+        $('.treatment-pencil').show();
+        $('.treatment-text').show();
+        $('.treatment-textarea').addClass('hidden');
+        $('.treatment-container button').addClass('hidden');
+    });
+    </script>
+     <script src="js/cbpFWTabs.js"></script>
+    <script type="text/javascript">
+    (function() {
+
+        [].slice.call(document.querySelectorAll('.sttabs')).forEach(function(el) {
+            new CBPFWTabs(el);
+        });
+
+    })();
+    </script>
+    <script src="../plugins/bower_components/sweetalert/sweetalert.min.js"></script>
+    <script src="../plugins/bower_components/sweetalert/jquery.sweet-alert.custom.js"></script>
+    <script src="../plugins/bower_components/timepicker/bootstrap-timepicker.min.js"></script>
+    <script src="../plugins/bower_components/clockpicker/dist/jquery-clockpicker.min.js"></script>
+    <script src="../plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
+    <script type="text/javascript">
+            // Clock pickers
+    $('#single-input').clockpicker({
+        placement: 'bottom',
+        align: 'left',
+        autoclose: true,
+        'default': 'now'
+
+    });
+
+    $('.clockpicker').clockpicker({
+            donetext: 'Done',
+
+        })
+        .find('input').change(function() {
+            console.log(this.value);
+        });
+
+    $('#check-minutes').click(function(e) {
+        // Have to stop propagation here
+        e.stopPropagation();
+        input.clockpicker('show')
+            .clockpicker('toggleView', 'minutes');
+    });
+    if (/mobile/i.test(navigator.userAgent)) {
+        $('input').prop('readOnly', true);
+    }
+    </script>
+    <script src="../plugins/bower_components/raphael/raphael-min.js"></script>
+    <script src="../plugins/bower_components/morrisjs/morris.js"></script>
+
+</body>
+
+</html>

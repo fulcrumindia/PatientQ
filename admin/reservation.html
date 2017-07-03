@@ -1,0 +1,225 @@
+<!DOCTYPE html>  
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">
+<title>Elite Hospital Admin Template - Hospital admin dashboard web app kit</title>
+<!-- Bootstrap Core CSS -->
+<link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="../plugins/bower_components/bootstrap-extension/css/bootstrap-extension.css" rel="stylesheet">
+<!-- animation CSS -->
+<link href="css/animate.css" rel="stylesheet">
+<!-- Wizard CSS -->
+<link href="../plugins/bower_components/register-steps/steps.css" rel="stylesheet">
+<!-- Custom CSS -->
+<link href="css/style.css" rel="stylesheet">
+<!-- color CSS -->
+<link href="css/colors/megna.css" id="theme"  rel="stylesheet">
+<link href="../plugins/bower_components/custom-select/custom-select.css" rel="stylesheet" type="text/css" />
+<link href="../plugins/bower_components/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+  <link href="../plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
+
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-19175540-9', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</head>
+<body>
+<!-- Preloader -->
+<div class="preloader">
+  <div class="cssload-speeding-wheel"></div>
+</div>
+<section id="wrapper" class="step-register">
+  <div class="register-box reservation-box">
+    <div class="">
+       
+      <!-- multistep form -->
+        <form id="msform" class="reservation-form">
+        <!-- progressbar -->
+        
+        
+        <fieldset>
+        <div>
+        <h3 class="text-left">Schedule Your Visit</h3>
+        <img src="../plugins/images/eliteadmin-logo-dark.png" class="pull-left">
+        <p class="clearfix"></p>
+        <h3 class="text-left"><b>1:10 P.M. Monday, June 10 (EDT)</b></h3>
+        <select class="pull-left">
+          <option value="2:10">2:10 P.M. Monday, June 10 (EDT)</option>
+          <option value="1:10" selected>1:10 P.M. Monday, June 10 (EDT)</option>
+          <option value="3:10">3:10 P.M. Monday, June 10 (EDT)</option>
+        </select>
+        <p class="clearfix"></p>
+        <p class="text-left title"><b>Patient Information</b></p>
+               <select class="select2 m-b-10 select2-multiple" multiple="multiple" data-placeholder="Please Enter Patient Symptoms">
+                                
+        </select>
+        
+        <div class="input-group">
+          <input type="text" class="form-control" name="name" placeholder="First Name">
+        </div>
+        <div class="input-group">
+          <input type="text" class="form-control" name="lname" placeholder="Last Name">
+        </div>
+        <div class="input-group">
+          <textarea class="form-control" rows="2"  placeholder="Address"></textarea>
+        </div>
+        <div class="input-group">
+          <input type="text" class="form-control" name="city" placeholder="Enter Your City">
+          <input type="text" class="form-control" name="zip-code" placeholder="Enter Your Zip Code">
+        </div>
+        <p class="text-left title"><b>Date Of Birth</b></p>
+        <div class="input-group">
+          <input type="text" class="form-control mydatepicker" placeholder="mm/dd/yyyy">
+          <span class="input-group-addon"><i class="icon-calender"></i></span> 
+
+        </div>
+        <div class="input-group">
+          <label class="text-danger">*Under age of 18 need parent or guardian consent</label>
+        </div>
+
+        <div class="radio radio-danger">
+          <p class="text-left"><b>Gender</b></p>
+          <input type="radio" name="radio" id="radio1" value="option1" checked>
+          <label for="radio1">Male&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+          <input type="radio" name="radio" id="radio2" value="option2">
+          <label for="radio2">Female&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+          <input type="radio" name="radio" id="radio3" value="option3">
+          <label for="radio3">Other&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        </div>
+        <div class="input-group">
+          <select class="form-control col-md-1">
+            <option>Text</option>
+            <option>Call</option>
+          </select>
+          <input type="text" class="form-control col-md-11" placeholder="Phone" name="phone">
+        </div>
+        <div class="input-group">
+          <input type="email" class="form-control" name="email" placeholder="Email">
+        </div>
+        <div class="radio radio-danger">
+          <p class="text-left"><b>Has the patient visit this hospital before?</b></p>
+          <input type="radio" name="radio" id="radio1" value="option1" checked>
+          <label for="radio1">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+          <input type="radio" name="radio" id="radio2" value="option2">
+          <label for="radio2">No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+          <input type="radio" name="radio" id="radio3" value="option3">
+          <label for="radio3">I am not sure&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        </div>
+          <p class="text-left title"><b>Addition Inofrmation</b></p>
+        <div class="input-group">
+          <label>Guardian or Parents Name</label>
+          
+        </div>
+        <div class="input-group">
+          <input type="text" name="parent" class="form-control" placeholder="Contact Number">
+        </div>  
+        <div class="input-group">
+          <label>Emergancy Contact</label>
+          
+        </div>
+        <div class="input-group">
+         
+          <input type="text" name="emergancy" class="form-control" placeholder="Contact Number">
+        </div>  
+        <div class="input-group">
+          <div class="checkbox checkbox-danger">
+              <input id="physicans-check" type="checkbox" checked="">
+              <label for="physicans-check">Do You have Primary care physicans?</label>
+              
+          </div>
+        </div>
+        <div class="input-group physicans-field">
+          <input type="text" name="parent" class="form-control" placeholder="Physicans Name">
+        </div>
+         <p class="text-left title"><b>Terms & Conditions</b></p>
+          
+        <div class="input-group">
+          <div class="checkbox checkbox-danger">
+              <input id="checkbox6" type="checkbox">
+              <label for="checkbox6">I understand that Our System is not to be used for life threatening conditions.I do not dbelive that the patient's condition is life threatening. <u>what does this mean?</u></label>
+          </div>
+        </div>
+        <div class="input-group">
+          <div class="checkbox checkbox-danger">
+              <input id="checkbox6" type="checkbox">
+              <label for="checkbox6">I consent to be contacted by email, and understanding that sensitive, personal health information may be contained in this email, and that using email contains certain risks <u>Read more about these risks.</u><u>Read our privacy policy</u></label>
+        </div>
+        </div>
+
+        <div class="input-group">
+          <button class="btn btn-danger btn-signin">Submit</button><br><br>
+        </div>
+        </div>
+        </fieldset>
+        
+        </form>
+        <div class="clear"></div>
+    </div>
+  </div>
+</section>
+<!-- jQuery -->
+<script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="bootstrap/dist/js/tether.min.js"></script>
+<script src="bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../plugins/bower_components/bootstrap-extension/js/bootstrap-extension.min.js"></script>
+<!-- Menu Plugin JavaScript -->
+<script src="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+<script src="../plugins/bower_components/register-steps/jquery.easing.min.js"></script>
+<script src="../plugins/bower_components/register-steps/register-init.js"></script>
+<!--slimscroll JavaScript -->
+<script src="js/jquery.slimscroll.js"></script>
+<!--Wave Effects -->
+<script src="js/waves.js"></script>
+<!-- Custom Theme JavaScript -->
+<script src="js/custom.min.js"></script>
+<!--Style Switcher -->
+<script src="../plugins/bower_components/custom-select/custom-select.min.js" type="text/javascript"></script>
+<script src="../plugins/bower_components/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
+  <script src="../plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+
+<script src="../plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
+<script type="text/javascript">
+  $(".select2").select2();
+  // Date Picker
+    jQuery('.mydatepicker, #datepicker').datepicker();
+    jQuery('#datepicker-autoclose').datepicker({
+        autoclose: true,
+        todayHighlight: true
+    });
+$(document).on('click','#physicans-check',function(){
+  if($("#physicans-check").is(':checked')){
+    $('.physicans-field').show();
+  }else{
+    $('.physicans-field').hide();
+  }
+});
+$(document).ready(function(){
+if($("#physicans-check").is(':checked')){
+    $('.physicans-field').show();
+  }else{
+    $('.physicans-field').hide();
+  }
+});
+</script>
+</body>
+</html>
