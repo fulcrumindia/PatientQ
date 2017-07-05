@@ -1,0 +1,112 @@
+<div id="wrapper">
+    <!-- Top Navigation -->
+    {{>header}}
+    <!-- End Top Navigation -->
+    <!-- Left navbar-header -->
+    {{>leftnav}}
+    <!-- Left navbar-header end -->
+    <!-- Page Content -->
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row bg-title">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                    <h4 class="page-title">Queue Builder</h4>
+                </div>
+                <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                    <ol class="breadcrumb">
+                        <li><a href="#">Home</a></li>
+                        <li class="active">Queue Builder</li>
+                    </ol>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /row -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="white-box">
+                        <h3 class="box-title">Queue Builder
+                            <a href="add-queue" class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">Add Queue</a>
+                        </h3>
+                        <div class="table-responsive">
+                            <table class="table color-bordered-table danger-bordered-table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Name</th>
+                                        <th>Color</th>
+                                        <th width="30%">Queue Message</th>
+                                        <th>Display Queue Message</th>
+                                        <th>Assign Status</th>
+                                        <th>Default</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{#each queues}}
+                                    <tr>
+                                        <td>{{_id}}</td>
+                                        <td>{{name}}</td>
+                                        <td>{{color}}</td>
+                                        <td>{{description}}</td>
+                                        <td>{{disablequeuesms}}</td>
+                                        <td>
+                                            <select class="form-control">
+                                                <option>Emergency</option>
+                                                <option>Urgency</option>
+                                                <option>Less Urgency</option>
+                                                <option>Non Urgency</option>
+                                            </select>
+                                        </td>
+                                        <td><input type="checkbox" class="js-switch" data-color="#01c0c8" data-size="small" {{#if isdefault}}checked="checked"{{/if}} /></td>
+                                        <td>
+                                            <a href="add-queue?a={{_id}}" class="btn btn-success btn-circle"><i class="fa fa-edit"></i> </a>&nbsp;
+                                            <a href="javascript:void(0)" class="btn btn-warning btn-circle model_img sa-warning"><i class="fa fa-trash"></i> </a>
+                                        </td>
+                                    </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+        {{>footer}}
+    </div>
+    <!-- /#page-wrapper -->
+</div>
+<!-- /#wrapper -->
+<!-- jQuery -->
+<script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="bootstrap/dist/js/tether.min.js"></script>
+<script src="bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../plugins/bower_components/bootstrap-extension/js/bootstrap-extension.min.js"></script>
+<!-- Menu Plugin JavaScript -->
+<script src="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+<!--slimscroll JavaScript -->
+<script src="js/jquery.slimscroll.js"></script>
+<!--Wave Effects -->
+<script src="js/waves.js"></script>
+<!-- Custom Theme JavaScript -->
+<script src="js/custom.min.js"></script>
+<!-- jQuery peity -->
+<script src="../plugins/bower_components/peity/jquery.peity.min.js"></script>
+<script src="../plugins/bower_components/peity/jquery.peity.init.js"></script>
+<!--Style Switcher -->
+<script src="../plugins/bower_components/switchery/dist/switchery.min.js"></script>
+<script>
+    jQuery(document).ready(function () {
+        // Switchery
+        var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+        $('.js-switch').each(function () {
+            new Switchery($(this)[0], $(this).data());
+
+        });
+        // For select 2
+    });
+</script>
+<script src="../plugins/bower_components/sweetalert/sweetalert.min.js"></script>
+<script src="../plugins/bower_components/sweetalert/jquery.sweet-alert.custom.js"></script>
+<script src="../plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>

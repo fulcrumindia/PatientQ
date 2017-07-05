@@ -11,6 +11,7 @@
     "url": "git+https://github.com/fulcrumindia/PatientQ.git"
   },
   "dependencies": {
+    "body-parser": "^1.17.2",
     "express": "*",
     "express-handlebars": "*",
     "mongoose": "^4.10.8"
