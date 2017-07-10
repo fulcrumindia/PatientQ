@@ -28,17 +28,18 @@ const queueSchema = mongoose.Schema({
         default: Date.now
     },
     userid: {
-        type: Number,
+        type: String,
         required: true
     },
-    waitime: String
+    waitime: String,
+    _patientIds: [{type: mongoose.Schema.Types.ObjectId, ref: "Patient"}]
 });
 
 const Queue = module.exports = mongoose.model('Queue', queueSchema);
 
 // get Queue
-module.exports.getQueue = (callback, limit) => {
-    Queue.find(callback).limit(limit);
+module.exports.getQueues = (callback, limit) => {
+    Queue.find(callback).populate('_patientIds').limit(limit).exec();
 }
 
 // get Queue by Id

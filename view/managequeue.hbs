@@ -102,22 +102,25 @@
                     <div class="col-md-12">
                         <div class="white-box search-field">
                             <h3 class="box-title">Patient Queue Manager</h3>
-                            <input id="name" type="text" name="" placeholder="Name"><input id="assigned" type="text" name="" placeholder="Assigned Wait Time"><input id="phone" type="text" name="" placeholder="Phone"><input id="symptom" type="text" name="" placeholder="symptom"><input type="text" name="" placeholder="Triage Status">
-                            <a href="javascript:void(0)" class="btn btn-danger btn-rounded ">Submit</a>
-                            <br><br>
-                            <form role="search" class="app-search hidden-xs">
-                            <input type="text" name="" placeholder="Search by customer Name or Phone number"> </form>
-                            
+                            <form role="search" class="app-search hidden-xs" action="addpatient" method="post">
+                                <input id="name" type="text" name="name" placeholder="Name">
+                                <input id="assigned" type="text" name="" placeholder="Assigned Wait Time">
+                                <input id="phone" type="text" name="phone" placeholder="Phone">
+                                <input id="symptom" type="text" name="symptom" placeholder="symptom">
+                                <input type="text" name="triageStatus" placeholder="Triage Status">
+                                <input type="hidden" name="_queueId" value="5953b3e613fcea10dcd079f7">
+                                <button class="btn btn-danger btn-rounded ">Submit</button>
+                                <br><br>
+                                <input type="text" name="" placeholder="Search by customer Name or Phone number">
+                            </form>
                         </div>
                     </div>
                 </div>
-
-                <div class="row">
-                   
-                    
+                {{#each queues}}
+                <div class="row">    
                     <div class="col-sm-12">
                         <div class="white-box">
-                            <h3 class="box-title">New Patient Queue 
+                            <h3 class="box-title">{{name}}
                             <!-- <a href="add-queue.html" target="_blank" class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">Add Queue</a> -->
                             </h3>
                             <div class="table-responsive">
@@ -136,6 +139,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        {{#each _patientIds}}
                                         <tr>
                                             <td>1</td>
                                             <td>
@@ -151,7 +155,7 @@
                                                     <option>Dr. Mary</option>
                                                 </select>
                                             </td>
-                                            <td><a href="javascript:void(0)" data-toggle="modal" data-target=".bs1-example-modal-lg">New Patient</a></td>
+                                            <td><a href="javascript:void(0)" data-toggle="modal" data-target=".bs1-example-modal-lg">{{name}}</a></td>
                                             <td>10:20 PM</td>
                                             <td><a href="javascript:void(0)" class="btn btn-danger btn-rounded model_img" data-toggle="modal" data-target=".bs-example-modal-lg">Message</a></td>
                                             <td>
@@ -164,72 +168,9 @@
                                             </td>
                                             <td>00:05</td>
                                             <td>10:06PM</td>
-                                            <td>Stomach ache, Bleeding from ears</td>
+                                            <td>{{symptom}}</td>
                                         </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>
-                                                <select class="tirage-status">
-                                                    <option>Select</option>
-                                                    <option class="urgency">Checked In</option>
-                                                    <option class="less-urgency">Treatment</option>
-                                                </select>
-                                                <br><br>
-                                                <select>
-                                                    <option>Dr. Brown</option>
-                                                    <option>Dr. John</option>
-                                                    <option>Dr. Mary</option>
-                                                </select>
-                                            </td>
-                                            <td><a href="javascript:void(0)" data-toggle="modal" data-target=".bs1-example-modal-lg">New Patient</a></td>
-                                            <td>10:20 PM</td>
-                                            <td><a href="javascript:void(0)" class="btn btn-danger btn-rounded model_img" data-toggle="modal" data-target=".bs-example-modal-lg">Message</a></td>
-                                            <td>
-                                                <select class="form-control tirage-status less-urgency">
-                                                    <option class="emergency">Emergency</option>
-                                                    <option class="urgency">Urgency</option>
-                                                    <option class="less-urgency" selected>Less Urgency</option>
-                                                    <option class="non-urgency">Non Urgency</option>
-                                                </select>
-                                            </td>
-                                            <td>00:05</td>
-                                            <td>10:06PM</td>
-                                            <td>Stomach ache, Bleeding from ears</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>
-                                                <select class="tirage-status">
-                                                    <option>Select</option>
-                                                    <option class="urgency">Checked In</option>
-                                                    <option class="less-urgency">Treatment</option>
-                                                </select>
-                                                <br><br>
-                                                <select>
-                                                    <option>Dr. Brown</option>
-                                                    <option>Dr. John</option>
-                                                    <option>Dr. Mary</option>
-                                                </select>
-                                                
-                                            </td>
-                                            <td><a href="javascript:void(0)" data-toggle="modal" data-target=".bs1-example-modal-lg">New Patient</a></td>
-                                            <td>10:20 PM</td>
-                                            <td><a href="javascript:void(0)" class="btn btn-danger btn-rounded model_img" data-toggle="modal" data-target=".bs-example-modal-lg">Message</a></td>
-                                            <td>
-                                                <select class="form-control tirage-status urgency">
-                                                    <option class="emergency">Emergency</option>
-                                                    <option class="urgency" selected>Urgency</option>
-                                                    <option class="less-urgency">Less Urgency</option>
-                                                    <option class="non-urgency">Non Urgency</option>
-                                                </select>
-                                            </td>
-                                            <td>00:05</td>
-                                            <td>10:06PM</td>
-                                            <td>Stomach ache, Bleeding from ears</td>
-                                        </tr>
-                                        
-                                                                        
-                                        
+                                        {{/each}}
                                     </tbody>
                                 </table>
                             </div>
@@ -237,73 +178,7 @@
                     </div>
                     
                 </div>
-
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="white-box">
-                            <h3 class="box-title">Treatment Queue</h3>
-                            <div class="table-responsive">
-                                <table class="table color-bordered-table danger-bordered-table">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th></th>
-                                            <th>Name</th>
-                                            <th>Visit Time</th>
-                                            <th>Message</th>
-                                            <th>Referred</th>
-                                            <th>Wait Time</th>
-                                            <th>Time Enter Portal</th>
-                                            <th>Symptoms / Treatment</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>
-                                                <select>
-                                                    <option>Treating</option>
-                                                    
-                                                </select>
-                                                <br><br>
-                                                <select>
-                                                    <option>Dr. Brown</option>
-                                                    <option>Dr. John</option>
-                                                    <option>Dr. Mary</option>
-                                                </select>
-                                            </td>
-                                            <td><a href="javascript:void(0)" data-toggle="modal" data-target=".bs1-example-modal-lg">New Patient</a></td>
-                                            <td>10:20 PM</td>
-                                            <td><a href="javascript:void(0)" class="btn btn-danger btn-rounded model_img" data-toggle="modal" data-target=".bs-example-modal-lg">Message</a></td>
-                                            <td>
-                                                <select class="form-control tirage-status">
-                                                    <option>PCP</option>
-                                                    <option>CLINIC</option>
-                                                    <option>SPECIALIST</option>
-                                                    <option>ADMIN</option>
-                                                </select>
-
-                                            </td>
-                                            <td>00:05</td>
-                                            <td>10:06PM</td>
-                                            <td class="treatment-container"><p class="treatment-text">Stomach ache, Bleeding from ears</p>
-                                            <span class="fa fa-pencil pull-right treatment-pencil"></span>
-                                            <textarea class="treatment-textarea hidden"></textarea>
-                                            <br>
-                                            <button class="hidden treatment-save">Save</button><button class="hidden treatment-cancel">Cancel</button>
-                                            </td>
-                                        </tr>
-                                                                            
-
-                                       
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-                
+                {{/each}}
             </div>
             <!-- /.container-fluid -->
             {{>footer}}

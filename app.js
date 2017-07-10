@@ -4,11 +4,12 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const hbs = require('express-handlebars');
 const app = express();
-const port = 3002;
-
+const port = 3000;
+ 
 // import
 const config = require('./config/database');
 const Queue = require('./model/Queue');
+const Patient = require('./model/Patient');
 
 // handlebars config
 var viewsPath = path.join(__dirname, 'view');
@@ -47,11 +48,40 @@ app.get('/login',(req,res)=>{
 });
 
 app.get('/managequeue',(req,res)=>{
-    res.render('managequeue');
+    Queue.getQueues((err, queues) =>{
+        if(err){
+            throw err;
+        } else {
+            //console.log(queues);
+            res.render('managequeue',{queues:queues});
+        }
+    });    
+});
+
+app.post('/addpatient',(req,res)=>{
+    patient = req.body;
+    Patient.addPatient(patient, (err, patient) =>{
+        if(err){
+            //console.log(err);
+            throw err;
+        } 
+
+        Queue.getQueueById(patient._queueId,(err, queue) =>{
+            if(err){
+                throw err;
+            } else {
+                //console.log(queue);
+                queue._patientIds.push(patient);
+                queue.save();
+
+                res.redirect('/managequeue');
+            }
+        });    
+    });   
 });
 
 app.get('/queuebuilder',(req,res)=>{
-    Queue.getQueue((err, queues) =>{
+    Queue.getQueues((err, queues) =>{
         if(err){
             throw err;
         } else {
@@ -85,13 +115,7 @@ app.post('/queuebuilder/:_id',(req,res)=>{
         });
     } 
  
-    Queue.getQueue((err1, queues) =>{
-        if(err1){
-            throw err1
-        } else {
-            res.render('queuebuilder',{queues:queues});
-        }
-    });    
+    res.redirect('/queuebuilder');
 });
 
 app.post('/queuebuilder',(req,res)=>{
@@ -101,13 +125,20 @@ app.post('/queuebuilder',(req,res)=>{
         } 
     });
 
-    Queue.getQueue((err1, queues) =>{
-        if(err1){
-            throw err1;
-        } else {
-            res.render('queuebuilder',{queues:queues});
-        }
-    });    
+    res.redirect('/queuebuilder');
+});
+
+app.get('/delete-queue/:_id',(req,res)=>{
+     var _id = req.params._id;
+    if(typeof _id !== 'undefined' && _id != ''){
+        Queue.deleteQueue(_id, (err, data) =>{
+            if(err){
+                throw err;
+            } 
+        });
+    }
+
+    res.redirect('/queuebuilder');
 });
 
 app.get('/sent-log',(req,res)=>{
