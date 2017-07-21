@@ -1,0 +1,20 @@
+{
+  "kioskPhoneNumberStatus" : false,
+  "waitMessageStatus" : false,
+  "updateMessageStatus" : false,
+  "transferQueueMessageStatus" : false,
+  "replyLMessageStatus" : false,
+  "replySMessageStatus" : false,
+  "reminderMessageStatus" : false,
+  "multipleReservationStatus" : false,
+  "departmentName" : "",
+  "supportemail" : "",
+  "waitMessage" : "",
+  "updateMessage" : "",
+  "transferQueueMessage" : "",
+  "replyLMessage" : "",
+  "replySMessage" : "",
+  "reminderMessage" : "",
+  "notificationTime" : "",
+  "support_number" : 0
+}

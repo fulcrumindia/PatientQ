@@ -3,6 +3,8 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
+var queueSettingsSeed = require('./QueueSettings.seed.json');
+
 var QueueSettingsSchema = new Schema({
     kioskPhoneNumberStatus: {type: Boolean, default: false},
     waitMessageStatus: {type: Boolean, default: false},
@@ -24,4 +26,26 @@ var QueueSettingsSchema = new Schema({
     support_number: {type: Number, default: 0}
 });
 
-module.exports = mongoose.model('QueueSettings', QueueSettingsSchema);
+const QueueSettings =  module.exports = mongoose.model('QueueSettings', QueueSettingsSchema);
+
+module.exports.getQueueSettings = (callback) =>{
+    QueueSettings.find(function (err, things) {
+        if(err) {
+            QueueSettings.create(queueSettingsSeed, function(error, thing) {
+                if(err) {
+                    callback(error,null)
+                }else {
+                    callback(null, thing)
+                }
+            });
+        }else{
+            callback(null,things[0])
+        }
+
+    });
+}
+
+// update Queue
+module.exports.updateQueuesettings = (_id, queue, options, callback) => {
+    Queue.findByIdAndUpdate(_id, queue, options, callback);
+}
