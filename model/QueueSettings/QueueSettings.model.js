@@ -23,13 +23,14 @@ var QueueSettingsSchema = new Schema({
     replySMessage: String,
     reminderMessage: String,
     notificationTime: String,
-    support_number: {type: Number, default: 0}
+    support_number: {type: Number, default: 0},
+    account_id: {type: String}
 });
 
 const QueueSettings =  module.exports = mongoose.model('QueueSettings', QueueSettingsSchema);
 
 module.exports.getQueueSettings = (callback) =>{
-    QueueSettings.find(function (err, things) {
+    QueueSettings.find({account_id:"TD6DHW9W9E2U9EU2"},function (err, things) {
         if(err) {
             QueueSettings.create(queueSettingsSeed, function(error, thing) {
                 if(err) {
