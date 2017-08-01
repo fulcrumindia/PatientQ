@@ -14,6 +14,7 @@
     "body-parser": "^1.17.2",
     "express": "*",
     "express-handlebars": "*",
+    "lodash": "~2.4.1",
     "mongoose": "^4.10.8"
   },
   "author": "Lavy Toteza",
