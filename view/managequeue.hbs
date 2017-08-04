@@ -91,10 +91,8 @@
                     </div>
                     <div class="col-md-3 col-sm-6">
                         <div class="white-box">
-                            
                             <p><b>Urgent</b><b class="pull-right">1:10</b></p>
                             <p><b>Stable</b><b class="pull-right">2:10</b></p>
-                            
                         </div>
                     </div>
                 </div>
@@ -143,10 +141,14 @@
                                         <tr>
                                             <td>1</td>
                                             <td>
-                                                <select class="tirage-status">
-                                                    <option>Select</option>
-                                                    <option class="urgency">Checked In</option>
-                                                    <option class="less-urgency">Treatment</option>
+                                                <select class="tirage-status move-to" data-id="{{id}}">
+                                                    {{#if_eq ../type "N"}}
+                                                        <option>Select</option>
+                                                        <option class="urgency">Checked In</option>
+                                                        <option class="less-urgency">Treatment</option>
+                                                    {{else}}
+                                                        <option class="treating">Treating</option>
+                                                    {{/if_eq}}
                                                 </select>
                                                 <br><br>
                                                 <select>
@@ -422,9 +424,6 @@
             $(this).children().toggleClass('fa-repeat');
             $(this).children().toggleClass('fa-undo');
        });
-       
-
-
     });
 
     $(document).ready(function(){
@@ -478,6 +477,13 @@
         $('.treatment-text').show();
         $('.treatment-textarea').addClass('hidden');
         $('.treatment-container button').addClass('hidden');
+    });
+    $( ".move-to" ).change(function() {
+        if( $(this).val()=='Treatment'){
+            var patientId = $(this).data("id");
+            var queueId = "5967a934608240481cb6c48c";
+            location.href='patient/'+patientId+'/'+queueId;
+        }
     });
     </script>
      <script src="js/cbpFWTabs.js"></script>

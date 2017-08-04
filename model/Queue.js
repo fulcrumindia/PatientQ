@@ -6,6 +6,7 @@ const queueSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    type: String,
     description: String,
     color:{
         type: String,
