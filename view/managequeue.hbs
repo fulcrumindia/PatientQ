@@ -130,7 +130,11 @@
                                             <th>Name</th>
                                             <th>Visit Time</th>
                                             <th>Message</th>
-                                            <th>Assign Triage Status</th>
+                                            {{#if_eq ../type "N"}}
+                                                <th>Assign Triage Status</th>
+                                            {{else}}
+                                                 <th>Referred</th>
+                                            {{/if_eq}}
                                             <th>Wait Time</th>
                                             <th>Time Enter Portal</th>
                                             <th>Symptoms</th>
@@ -159,12 +163,21 @@
                                             <td></td>
                                             <td><a href="javascript:void(0)" class="btn btn-danger btn-rounded model_img" data-toggle="modal" data-target=".bs-example-modal-lg">Message</a></td>
                                             <td>
+                                                {{#if_eq ../type "N"}}
                                                 <select class="form-control tirage-status emergency">
                                                     <option class="emergency">Emergency</option>
                                                     <option class="urgency">Urgency</option>
                                                     <option class="less-urgency">Less Urgency</option>
                                                     <option class="non-urgency">Non Urgency</option>
                                                 </select>
+                                                {{else}}
+                                                <select class="form-control tirage-status">
+                                                    <option>PCP</option>
+                                                    <option>CLINIC</option>
+                                                    <option>SPECIALIST</option>
+                                                    <option>ADMIN</option>
+                                                </select>
+                                                {{/if_eq}}
                                             </td>
                                             <td></td>
                                             <td></td>
