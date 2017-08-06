@@ -4,109 +4,101 @@ var path = require('path');
 var fs = require('fs');
 
 // Get list of things
-exports.get = function (req, res) {
-    var Model = mongoose.model(req.params.collection);
+exports.get = (collectionname, callback) => {
+    var Model = mongoose.model(collectionname);
     Model.find({$or: [{is_deleted: false}, {is_deleted: null}]}, function (err, annos) {
         if (err) {
-            res.send(send_response(null, true, err));
+            callback(err,null);
         } else {
-            res.send(send_response(annos));
+            callback(null,annos);
         }
     });
 };
 
 // Get a single thing
-exports.getById = function (req, res) {
-    var Model = mongoose.model(req.params.collection);
+exports.getById = (id,collectionname,callback) => {
+    var Model = mongoose.model(collectionname);
     Model.findOne({_id: req.params.id}, function (err, annos) {
         if (err) {
-            res.send(send_response(null, true, err));
+            callback(err,null);
         } else {
-            res.send(send_response(annos));
+           callback(null,annos);
         }
     });
 };
 
 // Creates a new thing in the DB.
-exports.createnew = function (req, res) {
-    var Model = mongoose.model(req.params.collection);
-    var data = new Model(req.body);
+exports.createnew = (model,collectionname,callback) => {
+    var Model = mongoose.model(collectionname);
+    var data = model;
     Model.create(data, function (err, mod) {
         if (err) {
-            res.send(send_response(null, true, err));
+            callback(err,null);
         } else {
-            res.send(send_response(mod));
+            callback(null,mod);
         }
     });
 };
 
 // Updates an existing thing in the DB.
-exports.update = function (req, res) {
+exports.update = (id,collectionname,callback)) {
 
-    var Model = mongoose.model(req.params.collection);
-    var id = req.params.id;
-    if (!id) {
-        id = req.body._id;
-    }
-    if (req.body._id) {
-        delete req.body._id;
-    }
+    var Model = mongoose.model(collectionname);
+
     Model.findById(id, function (err, thing) {
         if (err) {
-            res.send(send_response(null, true, err));
+            callback(err,null);
         }
         if (!thing) {
-            res.send(send_response(null, true, "Not Found"));
+            callback(null,null);
         }
         var updated = _.merge(thing, req.body);
         updated.save(function (err) {
             console.log("After Save...");
             if (err) {
-                res.send(send_response(null, true, err));
+                callback(err,null);
             } else {
-                res.send(send_response(thing));
+                callback(null,thing);
             }
         });
     });
 };
 
-exports.softdestroy = function (req, res) {
-    var Model = mongoose.model(req.params.collection);
-    var id = req.params.id;
-
+exports.softdestroy = (id,collectionname,callback) => {
+    var Model = mongoose.model(collectionname);
     Model.findById(id, function (err, thing) {
         if (err) {
-            res.send(send_response(null, true, err));
+            callback(err,null);
         }
         if (!thing) {
-            res.send(send_response(null, true, "Not Found"));
+            callback(null,null);
         }
         thing.is_deleted = true;
         thing.save(function (err) {
             if (err) {
-                res.send(send_response(null, true, err));
+                callback(err,null);
             } else {
-                res.send(send_response(thing));
+                callback(null,thing);
             }
         });
     });
 };
 
 // Deletes a thing from the DB.
-exports.destroy = function (req, res) {
-    var Model = mongoose.model(req.params.collection);
+exports.destroy = (id,collectionname,callback) => {
+    var Model = mongoose.model(collectionname);
     Model.findById(req.params.id, function (err, thing) {
         if (err) {
-            return res.send(send_response(null, true, err));
+            callback(err,null);
         }
         if (!thing) {
-            return res.send(send_response(null, true, "Not Found"));
+            callback(null,null);
         }
         thing.remove(function (err) {
             if (err) {
-                return res.send(send_response(null, true, err));
+                callback(err,null);
             }
-            return res.send(send_response(null, false, ''));
+            callback(null,null);
         });
     });
 };
@@ -129,6 +121,7 @@ exports.destroy = function (req, res) {
  * @apiSuccess {N/A}
  *
  */
+/*
 exports.executeQuery = function (req, res) {
     var Model = mongoose.model(req.params.collection);
     var where = req.body.where;
@@ -158,4 +151,6 @@ exports.executeQuery = function (req, res) {
         }
     });
 
+
 }
+*/
