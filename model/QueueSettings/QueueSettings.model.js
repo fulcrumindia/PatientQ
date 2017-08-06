@@ -30,17 +30,30 @@ var QueueSettingsSchema = new Schema({
 const QueueSettings =  module.exports = mongoose.model('QueueSettings', QueueSettingsSchema);
 
 module.exports.getQueueSettings = (callback) =>{
+    console.log('Enrtry');
     QueueSettings.find({account_id:"TD6DHW9W9E2U9EU2"},function (err, things) {
         if(err) {
-            QueueSettings.create(queueSettingsSeed, function(error, thing) {
-                if(err) {
-                    callback(error,null)
-                }else {
-                    callback(null, thing)
-                }
-            });
+            console.log('Error Here');
+            callback(error,null);
         }else{
-            callback(null,things[0])
+            if(things.length <= 0){
+                console.log('EmptyDB');
+                QueueSettings.create(queueSettingsSeed, function(error, thing) {
+                    if(err) {
+                        console.log('DB Error Here');
+                        callback(error,null)
+                    }else {
+                        console.log('DB Success');
+                        callback(null, thing)
+                    }
+                });
+            }else{
+                console.log('DB Find');
+               // console.log(things);
+                callback(null,things)
+            }
+
+
         }
 
     });

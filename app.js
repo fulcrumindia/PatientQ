@@ -10,7 +10,7 @@ const port = 3000;
 const config = require('./config/database');
 const Queue = require('./model/Queue');
 const Patient = require('./model/Patient');
-
+const QueueSettings = require('./model/QueueSettings/QueueSettings.model');
 // handlebars config
 var viewsPath = path.join(__dirname, 'view');
 app.set('views',viewsPath);
@@ -45,6 +45,16 @@ app.get('/',(req,res)=>{
 
 app.get('/login',(req,res)=>{
     res.render('login');
+});
+
+app.get('/test',(req,res)=>{
+    QueueSettings.getQueueSettings((err,data) =>{
+        if(err){
+            console.log(err);
+        }else{
+            console.log(data);
+        }
+    });
 });
 
 app.get('/managequeue',(req,res)=>{
