@@ -14,6 +14,7 @@ const Patient = require('./model/Patient');
 const QueueSettings = require('./model/QueueSettings/QueueSettings.model');
 // handlebars config
 var viewsPath = path.join(__dirname, 'view');
+
 app.set('views',viewsPath);
 app.engine('hbs', hbs({
     extname: 'hbs', 
@@ -43,6 +44,10 @@ app.use(bodyParser.urlencoded({
 
 // static path
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Call routes
+var routes = require('./routes');
+app.use('/', routes);
 
 // index route
 app.get('/',(req,res)=>{
