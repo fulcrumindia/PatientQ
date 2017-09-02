@@ -119,3 +119,11 @@ select.form-control.tirage-status {
 .equal-height .white-box {
     min-height: 247px;
 }
+.dashboardTitle
+{
+	    color: #01bbc3;
+    font-weight: 600;
+    border-bottom: 3px solid #01BBC2;
+    line-height:20px;
+   
+}
