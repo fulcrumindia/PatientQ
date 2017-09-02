@@ -1,0 +1,50 @@
+[
+	{
+		"icon":"profile.png",
+		"title":"Profile",
+		"link":"profile",
+		"parentClass":"col-sm-3",
+		"class":"col-sm-12",
+		"fontColor":"#5ba6e2"
+	},
+	{
+		"icon":"analytics.png",
+		"title":"Analytics",
+		"link":"analytics",
+		"parentClass":"col-sm-3",
+		"class":"col-sm-12",
+		"fontColor":"#e5777f"
+	},
+	{
+		"icon":"referral.png",
+		"title":"Referral Connect",
+		"link":"referralconnect",
+		"parentClass":"col-sm-3",
+		"class":"col-sm-12",
+		"fontColor":"#a26ede"
+	},
+	{
+		"icon":"message_log.png",
+		"title":"Message Log",
+		"link":"messagelog",
+		"parentClass":"col-sm-3",
+		"class":"col-sm-12",
+		"fontColor":"#d58b4e"
+	},
+	{
+		"icon":"support.png",
+		"title":"Support",
+		"link":"support",
+		"parentClass":"col-sm-3",
+		"class":"col-sm-12",
+		"fontColor":"#cfcf5b"
+	},
+	{
+		"icon":"tutorial.png",
+		"title":"Tutorial",
+		"link":"tutorial",
+		"parentClass":"col-sm-3",
+		"class":"col-sm-12",
+		"fontColor":"#6ec7b0"
+	}
+]
