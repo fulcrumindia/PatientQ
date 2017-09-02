@@ -1,0 +1,178 @@
+    <div id="wrapper">
+        <!-- Navigation -->
+        {{>header}}
+        <!-- Left navbar-header -->
+        {{>leftnav}}
+        <!-- Left navbar-header end -->
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row bg-title">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title">Dashboard</h4> </div>
+                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                        <ol class="breadcrumb">
+                            <li><a href="index.html">Home</a></li>
+                            <li class="active">Dashboard</li>
+                        </ol>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <div class="row">
+                    <div class="col-sm-12"><h4><span class="dashboardTitle">Set Up Administrator</span><span class="dashboardTitle pull-right">Client logo or name</span></h4></div>
+                </div>
+                <div class="row">
+                    
+                        {{#if dashboard}}
+                            {{#each dashboard}}
+                                <div class="{{parentClass}}">
+                                   <a href=/{{link}} style="color:{{fontColor}}"><img src="/images/{{icon}}" class="col-lg-12" /></a>
+                                    <div class="{{class}}">
+                                        <a href=/{{link}} style="color:{{fontColor}}"><h5 class="white-box text-center" style="color:{{fontColor}}">{{title}}</h5></a>
+                                    </div>
+                                </div>
+                            {{/each}}
+                        {{/if}}
+                                     
+                </div>
+                
+            </div>
+            <!-- /.container-fluid -->
+            {{>footer}}
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+    <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="bootstrap/dist/js/tether.min.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../plugins/bower_components/bootstrap-extension/js/bootstrap-extension.min.js"></script>
+    <!-- Menu Plugin JavaScript -->
+    <script src="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+    <!--slimscroll JavaScript -->
+    <script src="js/jquery.slimscroll.js"></script>
+    <!--Wave Effects -->
+    <script src="js/waves.js"></script>
+    <!-- Date Picker Plugin JavaScript -->
+    <script src="../plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript">
+    // Date Picker
+    jQuery('.mydatepicker').datepicker();
+    </script>
+    <!-- Custom Theme JavaScript -->
+    <script src="js/custom.min.js"></script>
+    <script src="js/jasny-bootstrap.js"></script>
+    <script src="js/mask.js"></script>
+    <!--Style Switcher -->
+    <script src="../plugins/bower_components/moment/moment.js"></script>
+    <!-- Clock Plugin JavaScript -->
+    <script src="../plugins/bower_components/clockpicker/dist/jquery-clockpicker.min.js"></script>
+    <!-- Color Picker Plugin JavaScript -->
+    <script src="../plugins/bower_components/jquery-asColorPicker-master/libs/jquery-asColor.js"></script>
+    <script src="../plugins/bower_components/jquery-asColorPicker-master/libs/jquery-asGradient.js"></script>
+    <script src="../plugins/bower_components/jquery-asColorPicker-master/dist/jquery-asColorPicker.min.js"></script>
+    <!-- Date Picker Plugin JavaScript -->
+    <script src="../plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+    <!-- Date range Plugin JavaScript -->
+    <script src="../plugins/bower_components/timepicker/bootstrap-timepicker.min.js"></script>
+    <script src="../plugins/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script>
+    // Clock pickers
+    $('#single-input').clockpicker({
+        placement: 'bottom',
+        align: 'left',
+        autoclose: true,
+        'default': 'now'
+
+    });
+
+    $('.clockpicker').clockpicker({
+            donetext: 'Done',
+
+        })
+        .find('input').change(function() {
+            console.log(this.value);
+        });
+
+    $('#check-minutes').click(function(e) {
+        // Have to stop propagation here
+        e.stopPropagation();
+        input.clockpicker('show')
+            .clockpicker('toggleView', 'minutes');
+    });
+    if (/mobile/i.test(navigator.userAgent)) {
+        $('input').prop('readOnly', true);
+    }
+    // Colorpicker
+
+    $(".colorpicker").asColorPicker();
+    $(".complex-colorpicker").asColorPicker({
+        mode: 'complex'
+    });
+    $(".gradient-colorpicker").asColorPicker({
+        mode: 'gradient'
+    });
+    // Date Picker
+    jQuery('.mydatepicker, #datepicker').datepicker();
+    jQuery('#datepicker-autoclose').datepicker({
+        autoclose: true,
+        todayHighlight: true
+    });
+
+    jQuery('#date-range').datepicker({
+        toggleActive: true
+    });
+    jQuery('#datepicker-inline').datepicker({
+
+        todayHighlight: true
+    });
+
+    // Daterange picker
+
+    $('.input-daterange-datepicker').daterangepicker({
+        buttonClasses: ['btn', 'btn-sm'],
+        applyClass: 'btn-danger',
+        cancelClass: 'btn-inverse'
+    });
+    $('.input-daterange-timepicker').daterangepicker({
+        timePicker: true,
+        format: 'MM/DD/YYYY h:mm A',
+        timePickerIncrement: 30,
+        timePicker12Hour: true,
+        timePickerSeconds: false,
+        buttonClasses: ['btn', 'btn-sm'],
+        applyClass: 'btn-danger',
+        cancelClass: 'btn-inverse'
+    });
+    $('.input-limit-datepicker').daterangepicker({
+        format: 'MM/DD/YYYY',
+        minDate: '06/01/2015',
+        maxDate: '06/30/2015',
+        buttonClasses: ['btn', 'btn-sm'],
+        applyClass: 'btn-danger',
+        cancelClass: 'btn-inverse',
+        dateLimit: {
+            days: 6
+        }
+    });
+    </script>
+        <script src="../plugins/bower_components/switchery/dist/switchery.min.js"></script>
+    <script>
+    jQuery(document).ready(function() {
+        // Switchery
+        var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+        $('.js-switch').each(function() {
+            new Switchery($(this)[0], $(this).data());
+
+        });
+        // For select 2
+
+       
+
+       
+
+    });
+    </script>
+    <script src="../plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>

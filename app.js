@@ -12,9 +12,10 @@ const config = require('./config/database');
 const Queue = require('./model/Queue');
 const Patient = require('./model/Patient');
 const QueueSettings = require('./model/QueueSettings/QueueSettings.model');
+const dashboard=require('./data/dashboard.json');
 // handlebars config
 var viewsPath = path.join(__dirname, 'view');
-
+var imagePath = path.join(__dirname, 'images');
 app.set('views',viewsPath);
 app.engine('hbs', hbs({
     extname: 'hbs', 
@@ -227,6 +228,30 @@ app.get('/store-timing',(req,res)=>{
 app.get('/app',(req,res)=>{
     res.render('app');
 });
+
+app.get('/dashboard',(req,res)=>{
+    res.render('dashboard',{dashboard:dashboard,imagePath:"/images"});
+});
+
+app.get('/profile',(req,res)=>{
+    res.render('profile',{title:'Profile'});
+});
+app.get('/analytics',(req,res)=>{
+    res.render('analytics',{title:'Analytics'});
+});
+app.get('/referralconnect',(req,res)=>{
+    res.render('referralconnect',{title:'Referral Connect'});
+});
+app.get('/messagelog',(req,res)=>{
+    res.render('messagelog',{title:'Message Log'});
+});
+app.get('/support',(req,res)=>{
+    res.render('support',{title:'Support'});
+});
+app.get('/tutorial',(req,res)=>{
+    res.render('tutorial',{title:'Tutorial'});
+});
+
 
 // start server
 app.listen(port, () => {
