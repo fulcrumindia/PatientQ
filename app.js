@@ -5,10 +5,15 @@ const bodyParser = require('body-parser');
 const hbs = require('express-handlebars');
 var async = require("async");
 const app = express();
+passport = require('passport');
+var flash = require('connect-flash');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
 const port = 8080;
- 
+
+
 // import
-// c
+
 const config = require('./config/database');
 const Queue = require('./model/Queue');
 const Patient = require('./model/Patient');
@@ -40,12 +45,20 @@ mongoose.connection.on('error',(err) => {
     console.log('Database Error '+err);
 });
 
+app.use(cookieParser());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
 
+require('./config/passport')(passport); // pass passport for configuration
+
 // static path
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session({ secret: 'patientQmaster' })); // session secret
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
 
 // Call routes
 var routes = require('./routes');
@@ -253,7 +266,11 @@ app.get('/tutorial',(req,res)=>{
     res.render('tutorial',{title:'Tutorial'});
 });
 
-
+app.post('/login', passport.authenticate('local-login', {
+    successRedirect : '/queuebuilder', // redirect to the secure profile section
+    failureRedirect : '/login', // redirect back to the signup page if there is an error
+    failureFlash : true // allow flash messages
+}));
 // start server
 app.listen(port, () => {
     console.log('Server running on port :'+port);
