@@ -70,7 +70,10 @@ app.get('/',(req,res)=>{
 });
 
 app.get('/login',(req,res)=>{
-    res.render('login');
+    if(req.session.user)
+        res.redirect('/queuebuilder');
+    else
+        res.render('login', { message: req.flash('loginMessage') });
 });
 
 app.get('/test',(req,res)=>{
