@@ -8,6 +8,7 @@ const app = express();
 const port = 8080;
  
 // import
+// c
 const config = require('./config/database');
 const Queue = require('./model/Queue');
 const Patient = require('./model/Patient');
