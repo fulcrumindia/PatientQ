@@ -63,7 +63,7 @@ module.exports = function(passport) {
                 newUser.password = newUser.generateHash(password);
                 newUser.userLevel = "SADMIN";
                 newUser.isRemoved = false;
-                newUser.email = "jotpal_07@yahoo.com";
+                newUser.email = username+"@gmail.com";
                 newUser.accountId="dummyAccountId";
                 newUser.createdby="dummyCreatedby";
                 newUser.modifiedby="dummyModifiedby";
@@ -72,7 +72,7 @@ module.exports = function(passport) {
                 newUser.save(function(err) {
                     if (err)
                         throw err;
-                    return done(null, newUser);
+                    return done(null, newUser, req.flash('signupMessage', 'User has been created successfully.'));
                 });
             }
 
