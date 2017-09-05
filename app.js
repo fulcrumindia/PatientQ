@@ -80,7 +80,10 @@ app.get('/login',(req,res)=>{
 });
 
 app.get('/signup',(req,res)=>{
-    res.render('signup', { message: req.flash('signupMessage') });
+        if(req.session.user)
+        res.redirect('/queuebuilder');
+    else
+        res.render('signup', { message: req.flash('signupMessage') });
 });
 
 app.get('/test',(req,res)=>{
@@ -277,7 +280,10 @@ app.get('/tutorial',(req,res)=>{
 });
 
 
-
+app.get('/logout',(req,res)=>{
+    req.session.destroy();
+    res.redirect('/login');
+});
 
 app.post('/signup', passport.authenticate('local-signup', {
         successRedirect : '/signup', // redirect to the secure profile section
