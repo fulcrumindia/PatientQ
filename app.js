@@ -86,7 +86,7 @@ app.get('/signup',(req,res)=>{
         res.render('signup', { message: req.flash('signupMessage') });
 });
 
-app.get('/test',(req,res)=>{
+app.get('/test', isLoggedIn,(req,res)=>{
     QueueSettings.getQueueSettings((err,data) =>{
         if(err){
             console.log(err);
@@ -96,7 +96,7 @@ app.get('/test',(req,res)=>{
     });
 });
 
-app.get('/managequeue',(req,res)=>{
+app.get('/managequeue', isLoggedIn,(req,res)=>{
     Queue.getQueues((err, queues) =>{
         if(err){
             throw err;
@@ -107,7 +107,7 @@ app.get('/managequeue',(req,res)=>{
     });    
 });
 
-app.post('/addpatient',(req,res)=>{
+app.post('/addpatient', isLoggedIn,(req,res)=>{
     newPatient = req.body;
     Patient.addPatient(newPatient, (err, patient) =>{
         if(err){
@@ -129,7 +129,7 @@ app.post('/addpatient',(req,res)=>{
     });   
 });
 
-app.get('/patient/:_id/:queueId',(req,res)=>{
+app.get('/patient/:_id/:queueId', isLoggedIn,(req,res)=>{
     var _id = req.params._id;
 
     if(typeof _id !== 'undefined' && _id != ''){
@@ -185,7 +185,7 @@ app.get('/queuebuilder', isLoggedIn,(req,res)=>{
     });    
 });
 
-app.get('/add-queue',(req,res)=>{
+app.get('/add-queue', isLoggedIn,(req,res)=>{
     var _id = req.query.a;
     if(typeof _id !== 'undefined'){
         Queue.getQueueById(_id, (err, queue) =>{
@@ -200,7 +200,7 @@ app.get('/add-queue',(req,res)=>{
     }
 });
 
-app.post('/queuebuilder/:_id',(req,res)=>{
+app.post('/queuebuilder/:_id', isLoggedIn,(req,res)=>{
     var _id = req.params._id;
     if(typeof _id !== 'undefined' && _id != ''){
         Queue.updateQueue(_id, req.body , {}, (err, data) =>{
@@ -213,7 +213,7 @@ app.post('/queuebuilder/:_id',(req,res)=>{
     res.redirect('/queuebuilder');
 });
 
-app.post('/queuebuilder',(req,res)=>{
+app.post('/queuebuilder', isLoggedIn,(req,res)=>{
     Queue.addQueue(req.body, (err, data) =>{
         if(err){
             throw err;
@@ -223,7 +223,7 @@ app.post('/queuebuilder',(req,res)=>{
     res.redirect('/queuebuilder');
 });
 
-app.get('/delete-queue/:_id',(req,res)=>{
+app.get('/delete-queue/:_id', isLoggedIn,(req,res)=>{
      var _id = req.params._id;
     if(typeof _id !== 'undefined' && _id != ''){
         Queue.deleteQueue(_id, (err, data) =>{
@@ -236,46 +236,46 @@ app.get('/delete-queue/:_id',(req,res)=>{
     res.redirect('/queuebuilder');
 });
 
-app.get('/sent-log',(req,res)=>{
+app.get('/sent-log', isLoggedIn,(req,res)=>{
     res.render('sent-log');
 });
 
-app.get('/advertising',(req,res)=>{
+app.get('/advertising', isLoggedIn,(req,res)=>{
     res.render('advertising');
 });
 
-app.get('/queuesetting',(req,res)=>{
+app.get('/queuesetting', isLoggedIn,(req,res)=>{
     res.render('queuesetting');
 });
 
-app.get('/store-timing',(req,res)=>{
+app.get('/store-timing', isLoggedIn,(req,res)=>{
     res.render('store-timing');
 });
 
-app.get('/app',(req,res)=>{
+app.get('/app', isLoggedIn,(req,res)=>{
     res.render('app');
 });
 
-app.get('/dashboard',(req,res)=>{
+app.get('/dashboard', isLoggedIn,(req,res)=>{
     res.render('dashboard',{dashboard:dashboard,imagePath:"/images"});
 });
 
-app.get('/profile',(req,res)=>{
+app.get('/profile', isLoggedIn,(req,res)=>{
     res.render('profile',{title:'Profile'});
 });
-app.get('/analytics',(req,res)=>{
+app.get('/analytics', isLoggedIn,(req,res)=>{
     res.render('analytics',{title:'Analytics'});
 });
-app.get('/referralconnect',(req,res)=>{
+app.get('/referralconnect', isLoggedIn,(req,res)=>{
     res.render('referralconnect',{title:'Referral Connect'});
 });
-app.get('/messagelog',(req,res)=>{
+app.get('/messagelog', isLoggedIn,(req,res)=>{
     res.render('messagelog',{title:'Message Log'});
 });
-app.get('/support',(req,res)=>{
+app.get('/support', isLoggedIn,(req,res)=>{
     res.render('support',{title:'Support'});
 });
-app.get('/tutorial',(req,res)=>{
+app.get('/tutorial', isLoggedIn,(req,res)=>{
     res.render('tutorial',{title:'Tutorial'});
 });
 
@@ -292,7 +292,7 @@ app.post('/signup', passport.authenticate('local-signup', {
     }));
 
 app.post('/login', passport.authenticate('local-login', {
-    successRedirect : '/queuebuilder', // redirect to the secure profile section
+    successRedirect : '/dashboard', // redirect to the secure profile section
     failureRedirect : '/login', // redirect back to the signup page if there is an error
     failureFlash : true // allow flash messages
 }));
