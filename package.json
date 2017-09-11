@@ -12,12 +12,17 @@
   },
   "dependencies": {
     "async": "^2.5.0",
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.0",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
     "express": "^4.15.4",
     "express-handlebars": "*",
+    "express-session": "^1.15.5",
     "lodash": "~2.4.1",
     "mongoose": "^4.11.11",
-    "passport": "^0.4.0"
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
   },
   "author": "Lavy Toteza",
   "license": "ISC",
