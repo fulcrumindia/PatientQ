@@ -16,7 +16,8 @@
     "express": "*",
     "express-handlebars": "*",
     "lodash": "~2.4.1",
-    "mongoose": "^4.10.8"
+    "mongoose": "^4.10.8",
+    "passport":"*"
   },
   "author": "Lavy Toteza",
   "license": "ISC",
