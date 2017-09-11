@@ -9,11 +9,9 @@ passport = require('passport');
 var flash = require('connect-flash');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
-const port = 8080;
-
+const port = 8082;
 
 // import
-
 const config = require('./config/database');
 const Queue = require('./model/Queue');
 const Patient = require('./model/Patient');
@@ -120,6 +118,7 @@ app.post('/addpatient', isLoggedIn,(req,res)=>{
                 throw err;
             } else {
                 //console.log(queue);
+                //console.log(patient);
                 queue._patientIds.push(patient);
                 queue.save();
 

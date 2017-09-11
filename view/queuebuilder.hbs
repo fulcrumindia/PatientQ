@@ -44,7 +44,7 @@
                                 <tbody>
                                     {{#each queues}}
                                     <tr>
-                                        <td>{{inc @index}}</td>
+                                        <td><input type="hidden" name="id" value="{{id}}">{{inc @index}}</td>
                                         <td>{{name}}</td>
                                         <td>{{color}}</td>
                                         <td>{{description}}</td>
