@@ -63,3 +63,10 @@ module.exports.deleteQueue = (_id, callback) => {
     var query = {_id: _id};
     Queue.remove(query, callback);
 }
+
+// find Queue by type
+module.exports.findQueueByType = (type, callback) => {
+    var query = {type: type};
+    //console.log(query);
+    Queue.find(query, callback);
+}

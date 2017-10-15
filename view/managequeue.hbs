@@ -1,12 +1,14 @@
 <style type="text/css">
-    input#name {
-    width: 80px;
-    }
-    input#phone {
-        width: 80px;
+    input#assignedWaitTime {
+        width: 150px;
     }
     input#symptom {
         width: 400px;
+        margin-top: 5px;
+    }
+    select#triage-status{
+        width:190px;
+        border: 1px solid;
     }
 </style>
     <div id="wrapper">
@@ -102,11 +104,19 @@
                             <h3 class="box-title">Patient Queue Manager</h3>
                             <form role="search" class="app-search hidden-xs" action="addpatient" method="post">
                                 <input id="name" type="text" name="name" placeholder="Name">
-                                <input id="assigned" type="text" name="" placeholder="Assigned Wait Time">
+                                <input id="assignedWaitTime" type="text" name="assignedWaitTime" placeholder="Assigned Wait Time">
                                 <input id="phone" type="text" name="phone" placeholder="Phone">
+                                <select id="triage-status" name="triage-status" class="form-control tirage-status emergency">
+                                    <option value="Emergency">Emergency</option>
+                                </select>
                                 <input id="symptom" type="text" name="symptom" placeholder="symptom">
-                                <input type="text" name="triageStatus" placeholder="Triage Status">
-                                <input type="hidden" name="_queueId" value="59b66e1521048c24ff0c066b">
+                                {{!-- <input type="text" name="triageStatus" placeholder="Triage Status"> --}}
+                                
+                                {{#each queues}}
+                                    {{#if_eq type "N"}}
+                                        <input type="hidden" name="_queueId" value="{{id}}">
+                                    {{/if_eq}}
+                                {{/each}}
                                 <button class="btn btn-danger btn-rounded ">Submit</button>
                                 <br><br>
                                 <input type="text" name="" placeholder="Search by customer Name or Phone number">
@@ -130,7 +140,7 @@
                                             <th>Name</th>
                                             <th>Visit Time</th>
                                             <th>Message</th>
-                                            {{#if_eq ../type "N"}}
+                                            {{#if_eq type "N"}}
                                                 <th>Assign Triage Status</th>
                                             {{else}}
                                                  <th>Referred</th>
@@ -145,7 +155,7 @@
                                         <tr>
                                             <td>1</td>
                                             <td>
-                                                <select class="tirage-status move-to" data-id="{{id}}">
+                                                <select class="tirage-status move-to" data-id="{{id}}" data-name="{{../../queueByType._id}}">
                                                     {{#if_eq ../type "N"}}
                                                         <option>Select</option>
                                                         <option class="urgency">Checked In</option>
@@ -494,7 +504,7 @@
     $( ".move-to" ).change(function() {
         if( $(this).val()=='Treatment'){
             var patientId = $(this).data("id");
-            var queueId = "59b687c221048c24ff0c066c";
+            var queueId = $(this).data("name"); 
             location.href='patient/'+patientId+'/'+queueId;
         }
     });

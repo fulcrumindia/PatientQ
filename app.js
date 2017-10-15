@@ -100,7 +100,11 @@ app.get('/managequeue', isLoggedIn,(req,res)=>{
             throw err;
         } else {
             //console.log(queues);
-            res.render('managequeue',{queues:queues});
+            Queue.findQueueByType('T',(err,queues1)=>{
+                //console.log(queues1[0]._id);
+                res.render('managequeue',{queues:queues,queueByType:queues1[0]});
+            });
+            
         }
     });    
 });
