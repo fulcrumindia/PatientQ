@@ -184,9 +184,9 @@
                                                     <option class="non-urgency">Non Urgency</option>
                                                 </select>
                                                 {{else}}
-                                                <select class="form-control tirage-status">
+                                                <select class="form-control tirage-status referred" data-id="{{id}}">
                                                     <option>PCP</option>
-                                                    <option>CLINIC</option>
+                                                    <option value="CLINIC">CLINIC</option>
                                                     <option>SPECIALIST</option>
                                                     <option>ADMIN</option>
                                                 </select>
@@ -509,6 +509,12 @@
             var patientId = $(this).data("id");
             var queueId = $(this).data("name"); 
             location.href='patient/'+patientId+'/'+queueId;
+        }
+    });
+    $( ".referred" ).change(function() {
+        if( $(this).val()=='CLINIC'){
+            var patientId = $(this).data("id");
+            location.href='rpatient/'+patientId;
         }
     });
     </script>

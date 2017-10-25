@@ -132,6 +132,20 @@ app.post('/addpatient', isLoggedIn,(req,res)=>{
     });   
 });
 
+app.get('/rpatient/:_id', isLoggedIn,(req,res)=>{
+    var _id = req.params._id;
+    // remove patient id from old queue
+    Patient.getPatientById(_id,(err,patient) => {
+        Queue.getQueueById(patient._queueId,(err, queue) =>{
+            //console.log(patient._queueId);
+            queue._patientIds.remove(patient);
+            queue.save(); 
+
+            res.redirect('/managequeue');
+        });
+    });
+});
+
 app.get('/patient/:_id/:queueId', isLoggedIn,(req,res)=>{
     var _id = req.params._id;
 
