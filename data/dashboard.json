@@ -2,7 +2,7 @@
 	{
 		"icon":"profile.png",
 		"title":"Profile",
-		"link":"profile",
+		"link":"images/Profile_admin.png",
 		"parentClass":"col-sm-4",
 		"class":"col-sm-12",
 		"fontColor":"#5ba6e2"
@@ -10,7 +10,7 @@
 	{
 		"icon":"analytics.png",
 		"title":"Analytics",
-		"link":"analytics",
+		"link":"images/Analytics_Stuctured.png",
 		"parentClass":"col-sm-4",
 		"class":"col-sm-12",
 		"fontColor":"#e5777f"
