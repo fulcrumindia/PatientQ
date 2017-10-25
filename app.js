@@ -295,7 +295,7 @@ app.post('/signup', passport.authenticate('local-signup', {
     }));
 
 app.post('/login', passport.authenticate('local-login', {
-    successRedirect : '/dashboard', // redirect to the secure profile section
+    successRedirect : '/managequeue', // redirect to the secure profile section
     failureRedirect : '/login', // redirect back to the signup page if there is an error
     failureFlash : true // allow flash messages
 }));

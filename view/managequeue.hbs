@@ -38,7 +38,7 @@
                         <div class="white-box">
                             <p class="title-style">Patient per Hour</p>
                             <p class="text-center"><b>1 In Queue</b></p>
-                            <p class="text-center"><a href="javascript:void(0)" class="btn btn-danger btn-rounded" data-toggle="modal" data-target=".bs2-example-modal-lg">Control Patient Flow</a></p>
+                            <p class="text-center"><a href="javascript:void(0)" class="btn btn-danger btn-rounded" data-toggle="modal" data-target=".bs2-example-modal-lg">Schedule visits</a></p>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6">
@@ -107,7 +107,10 @@
                                 <input id="assignedWaitTime" type="text" name="assignedWaitTime" placeholder="Assigned Wait Time">
                                 <input id="phone" type="text" name="phone" placeholder="Phone">
                                 <select id="triage-status" name="triage-status" class="form-control tirage-status emergency">
-                                    <option value="Emergency">Emergency</option>
+                                   <option value="Urgent" selected>Urgent</option>
+                                   <option value="LessUrgent">Less Urgent</option>
+                                   <option value="NonUrgent">Non Urgent</option>
+                                   <option value="Emergency">Emergency</option>
                                 </select>
                                 <input id="symptom" type="text" name="symptom" placeholder="symptom">
                                 {{!-- <input type="text" name="triageStatus" placeholder="Triage Status"> --}}
@@ -176,7 +179,7 @@
                                                 {{#if_eq ../type "N"}}
                                                 <select class="form-control tirage-status emergency">
                                                     <option class="emergency">Emergency</option>
-                                                    <option class="urgency">Urgency</option>
+                                                    <option class="urgency" selected>Urgency</option>
                                                     <option class="less-urgency">Less Urgency</option>
                                                     <option class="non-urgency">Non Urgency</option>
                                                 </select>
