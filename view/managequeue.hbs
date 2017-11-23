@@ -194,7 +194,19 @@
                                             </td>
                                             <td></td>
                                             <td></td>
-                                            <td>{{symptom}}</td>
+                                            {{#if_eq ../type "N"}}
+                                            <td>
+                                                {{symptom}}
+                                            </td>
+                                            {{else}}
+                                            <td class="treatment-container">
+                                                <p class="treatment-text">{{symptom}}</p>
+                                                <span class="fa fa-pencil pull-right treatment-pencil"></span>
+                                                <textarea class="treatment-textarea hidden"></textarea>
+                                                <br>
+                                                <button class="hidden treatment-save">Save</button><button class="hidden treatment-cancel">Cancel</button>
+                                            </td>
+                                            {{/if_eq}}
                                         </tr>
                                         {{/each}}
                                     </tbody>
