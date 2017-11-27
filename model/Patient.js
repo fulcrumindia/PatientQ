@@ -12,6 +12,7 @@ const patientSchema = mongoose.Schema({
     },
     symptom: String,
     triageStatus: String,
+    doctorId: String,
     enterdate:{
         type: Date,
         default: Date.now
@@ -40,6 +41,6 @@ module.exports.addPatient = (patient,callback) => {
 }
 
 // update Patient queue id
-module.exports.updatePatientQueueId = (_id,patient,options,callback) => {
+module.exports.updatePatientDetails = (_id,patient,options,callback) => {
     Patient.findByIdAndUpdate(_id, patient, options, callback);
 }

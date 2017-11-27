@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const path = require('path');
 const bodyParser = require('body-parser');
 const hbs = require('express-handlebars');
+var handlebars = require('handlebars');
+const fs = require('fs');
 var async = require("async");
 const app = express();
 passport = require('passport');
@@ -17,6 +19,8 @@ const Queue = require('./model/Queue');
 const Patient = require('./model/Patient');
 const QueueSettings = require('./model/QueueSettings/QueueSettings.model');
 const dashboard=require('./data/dashboard.json');
+const doctors=require('./data/doctors.json');
+
 // handlebars config
 var viewsPath = path.join(__dirname, 'view');
 var imagePath = path.join(__dirname, 'images');
@@ -78,7 +82,7 @@ app.get('/login',(req,res)=>{
 });
 
 app.get('/signup',(req,res)=>{
-        if(req.session.user)
+    if(req.session.user)
         res.redirect('/queuebuilder');
     else
         res.render('signup', { message: req.flash('signupMessage') });
@@ -102,7 +106,7 @@ app.get('/managequeue', isLoggedIn,(req,res)=>{
             //console.log(queues);
             Queue.findQueueByType('T',(err,queues1)=>{
                 //console.log(queues1[0]._id);
-                res.render('managequeue',{queues:queues,queueByType:queues1[0]});
+                res.render('managequeue',{doctors:doctors,queues:queues,queueByType:queues1[0]});
             });
             
         }
@@ -146,6 +150,18 @@ app.get('/rpatient/:_id', isLoggedIn,(req,res)=>{
     });
 });
 
+app.get('/updatePatientDoctor/:_patientId/:_docId', isLoggedIn,(req,res)=>{
+    var patientId = req.params._patientId;
+   
+    var newPatient = {
+        doctorId: req.params._docId
+    }
+    Patient.updatePatientDetails(patientId, newPatient , {}, (err, patient) =>{
+        
+    });
+    //res.redirect('/managequeue');
+});   
+
 app.get('/patient/:_id/:queueId', isLoggedIn,(req,res)=>{
     var _id = req.params._id;
 
@@ -172,7 +188,7 @@ app.get('/patient/:_id/:queueId', isLoggedIn,(req,res)=>{
                 var newPatient = {
                     _queueId: req.params.queueId
                 }
-                Patient.updatePatientQueueId(_id, newPatient , {}, (err, patient) =>{
+                Patient.updatePatientDetails(_id, newPatient , {}, (err, patient) =>{
                     callback(null,patient);
                 });
             },
@@ -190,6 +206,25 @@ app.get('/patient/:_id/:queueId', isLoggedIn,(req,res)=>{
             res.redirect('/managequeue');
         });   
     } 
+});
+
+app.get('/patientMiniModal/:_patientId', isLoggedIn,(req,res)=>{
+    var _id = req.params._patientId;
+    Patient.getPatientById(_id,(err,patient) => {
+        console.log(err);
+        fs.readFile('view/modals/patient-mini-details.hbs', function(err, data) {  
+            if(err)
+                console.log(err);
+            else{
+                var source = data.toString();
+                var template = handlebars.compile(source);
+                var outputString = template({patient:patient});
+
+                res.writeHead(200, { 'Content-Type': 'text/html' });  
+                res.end(outputString, "utf-8"); 
+            }
+        });
+    });
 });
 
 app.get('/queuebuilder', isLoggedIn,(req,res)=>{
