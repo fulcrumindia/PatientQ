@@ -215,10 +215,11 @@
                                             {{else}}
                                             <td class="treatment-container">
                                                 <p class="treatment-text">{{symptom}}</p>
-                                                <span class="fa fa-pencil pull-right treatment-pencil"></span>
-                                                <textarea class="treatment-textarea hidden"></textarea>
+                                                <span class="fa fa-pencil pull-right treatment-pencil" data-id={{id}}></span>
+                                                <textarea id="treatment-comment_{{id}}" class="treatment-textarea hidden"></textarea>
                                                 <br>
-                                                <button class="hidden treatment-save">Save</button><button class="hidden treatment-cancel">Cancel</button>
+                                                <button class="hidden treatment-save" data-id={{id}}>Save</button>
+                                                <button data-id={{id}} class="hidden treatment-cancel">Cancel</button>
                                             </td>
                                             {{/if_eq}}
                                         </tr>
@@ -473,23 +474,26 @@
         }
     });
     $(document).on('click','.treatment-pencil',function(){
-        $('.treatment-pencil').hide();
-        $('.treatment-text').hide();
-        $('.treatment-textarea').removeClass('hidden');
-        $('.treatment-container button').removeClass('hidden');
+        var patientId = $(this).data('id');
+        $(this).hide();
+        $(this).closest('.treatment-container').find('.treatment-text').hide();
+        $('#treatment-comment_'+patientId).removeClass('hidden');
+        $(this).closest('.treatment-container').find('button').removeClass('hidden');
     });
     $(document).on('click','.treatment-cancel',function(){
-        $('.treatment-pencil').show();
-        $('.treatment-text').show();
-        $('.treatment-textarea').addClass('hidden');
-        $('.treatment-container button').addClass('hidden');
+        var patientId = $(this).data('id');
+        $(this).closest('.treatment-container').find('.treatment-pencil').show();
+        $(this).closest('.treatment-container').find('.treatment-text').show();
+        $('#treatment-comment_'+patientId).addClass('hidden');
+        $(this).closest('.treatment-container').find('button').addClass('hidden');
     });
     $(document).on('click','.treatment-save',function(){
-        $('.treatment-text').text($('.treatment-textarea').val());
-        $('.treatment-pencil').show();
-        $('.treatment-text').show();
-        $('.treatment-textarea').addClass('hidden');
-        $('.treatment-container button').addClass('hidden');
+        var patientId = $(this).data('id');
+        $(this).closest('.treatment-container').find('.treatment-text').html($('#treatment-comment_'+patientId).val());
+        $(this).closest('.treatment-container').find('.treatment-pencil').show();
+        $(this).closest('.treatment-container').find('.treatment-text').show();
+        $('#treatment-comment_'+patientId).addClass('hidden');
+        $(this).closest('.treatment-container').find('button').addClass('hidden');
     });
     $( ".move-to" ).change(function() {
         if( $(this).val()=='Treatment'){
@@ -499,10 +503,10 @@
         }
     });
     $( ".referred" ).change(function() {
-        if( $(this).val()=='CLINIC'){
+        //if( $(this).val()=='CLINIC'){
             var patientId = $(this).data("id");
             location.href='rpatient/'+patientId;
-        }
+        //}
     });
     $( "#doctor-name" ).change(function() {
         var docId = $(this).val();
