@@ -20,6 +20,7 @@ const Patient = require('./model/Patient');
 const QueueSettings = require('./model/QueueSettings/QueueSettings.model');
 const dashboard=require('./data/dashboard.json');
 const doctors=require('./data/doctors.json');
+const analytics = require('./data/analytics.json');
 
 // handlebars config
 var viewsPath = path.join(__dirname, 'view');
@@ -316,7 +317,7 @@ app.get('/profile', isLoggedIn,(req,res)=>{
     res.render('profile',{title:'Profile'});
 });
 app.get('/analytics', isLoggedIn,(req,res)=>{
-    res.render('analytics',{title:'Analytics'});
+    res.render('analytics',{title:'Analytics',analyticsData:analytics});
 });
 app.get('/referralconnect', isLoggedIn,(req,res)=>{
     res.render('referralconnect',{title:'Referral Connect'});

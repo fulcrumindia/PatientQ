@@ -10,7 +10,11 @@ var register = function(Handlebars) {
        },
        inc: function(value, options){
             return parseInt(value) + 1;
-        }
+        },
+
+       to_string:function(content){
+        return JSON.stringify(content);
+       } 
     };
 
     if (Handlebars && typeof Handlebars.registerHelper === "function") {

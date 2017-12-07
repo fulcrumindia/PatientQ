@@ -1,0 +1,108 @@
+{
+    "awt":[2,4,4,6,8,5,6,4,8,6,6,2 ],
+    "att":[2,4,8,6,8,5,6,4,8,6,6,2 ],
+    "avt":[2,4,4,6,8,5,6,4,8,6,6,2],
+    "patient":[{
+        "period": "2010-01",
+        "iphone": 50,
+        "ipad": 80,
+        "itouch": 20
+    }, {
+        "period": "2010-02",
+        "iphone": 130,
+        "ipad": 100,
+        "itouch": 80
+    }, {
+        "period": "2010-03",
+        "iphone": 80,
+        "ipad": 60,
+        "itouch": 70
+    }, {
+        "period": "2010-04",
+        "iphone": 70,
+        "ipad": 200,
+        "itouch": 140
+    }, {
+        "period": "2010-05",
+        "iphone": 180,
+        "ipad": 150,
+        "itouch": 140
+    }, {
+        "period": "2010-06",
+        "iphone": 105,
+        "ipad": 100,
+        "itouch": 80
+    },
+     {
+        "period": "2010-07",
+        "iphone": 250,
+        "ipad": 150,
+        "itouch": 200
+    }],
+     
+    "visit": [{
+        "period": "Dec",
+        "OPD": 40,
+        "ICU": 50
+     }, {
+        "period": "Jan",
+        "OPD": 130,
+        "ICU": 100
+    }, {
+        "period": "Feb",
+        "OPD": 30,
+        "ICU": 60
+        
+    }, {
+        "period": "Mar",
+        "OPD": 30,
+        "ICU": 50
+    
+    },
+    {
+        "period": "Apr",
+        "OPD": 30,
+        "ICU": 50
+        
+    }],
+    "referrals": [{
+        "period": "2010-01",
+        "iMac": 0,
+        "iPhone": 0
+        
+    }, {
+        "period": "2010-02",
+        "iMac": 130,
+        "iPhone": 100
+        
+    }, {
+        "period": "2010-03",
+        "iMac": 30,
+        "iPhone": 60
+        
+    }, {
+        "period": "2010-04",
+        "iMac": 30,
+        "iPhone": 200
+        
+    }, {
+        "period": "2010-05",
+        "iMac": 200,
+        "iPhone": 150
+        
+    }, {
+        "period": "2010-06",
+        "iMac": 105,
+        "iPhone": 90
+        
+    },
+     {
+        "period": "2010-07",
+        "iMac": 250,
+        "iPhone": 150
+       
+    }]
+
+
+
+}

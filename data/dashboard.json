@@ -10,7 +10,7 @@
 	{
 		"icon":"analytics.png",
 		"title":"Analytics",
-		"link":"images/Analytics_Stuctured.png",
+		"link":"analytics",
 		"parentClass":"col-sm-4",
 		"class":"col-sm-12",
 		"fontColor":"#e5777f"
