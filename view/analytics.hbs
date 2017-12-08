@@ -21,77 +21,149 @@
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
-        </div>
 
         <div class="row">
-            <div class="col-md-3 col-sm-6">
-                <div class="white-box">
-                    <div class="r-icon-stats">
-                        <i class="ti-user bg-megna"></i>
-                        <div class="bodystate">
-                            <h4>22</h4>
-                            <span class="text-muted">Total Patient</span>
-                        </div>
-                    </div>
-                </div>
+            <div class=" col-md-3 col-sm-6">
+                <div class="white-box text-center">
+                    <input data-plugin="knob" data-width="150" data-height="150" data-min="0" data-fgColor="#01c0c8" data-displayPrevious=true data-angleOffset=-125 data-angleArc=250 value="{{analyticsData.totalPatient}}" />
+                    <h5 class="text-muted m-t-10">Total Patient</h5> </div>
             </div>
             <div class="col-md-3 col-sm-6">
-                <div class="white-box">
-                    <div class="r-icon-stats">
-                        <i class="ti-shopping-cart bg-info"></i>
-                        <div class="bodystate">
-                            <h4>10</h4>
-                            <span class="text-muted">Portal-Visits</span>
-                        </div>
-                    </div>
-                </div>
+                <div class="white-box text-center">
+                    <input data-plugin="knob" data-width="150" data-height="150" data-min="0" data-fgColor="#03a9f3" data-displayPrevious=true data-angleOffset=-125 data-angleArc=250 value="{{analyticsData.portalVisit}}" />
+                    <h5 class="text-muted m-t-10">Portal Visits</h5> </div>
+            </div>
+            <div class="col-md-3 col-sm-6 ">
+                <div class="white-box text-center">
+                    <input data-plugin="knob" data-width="150" data-height="150" data-min="0" data-fgColor="#00c292" data-displayPrevious=true data-angleOffset=-125 data-angleArc=250 value="{{analyticsData.walkIn}}" />
+                    <h5 class="text-muted m-t-10">Walk In</h5> </div>
             </div>
             <div class="col-md-3 col-sm-6">
-                <div class="white-box">
-                    <div class="r-icon-stats">
-                        <i class="ti-wallet bg-success"></i>
-                        <div class="bodystate">
-                            <h4>16</h4>
-                            <span class="text-muted">Walk-in</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="white-box">
-                    <div class="r-icon-stats">
-                        <i class="ti-wallet bg-inverse"></i>
-                        <div class="bodystate">
-                            <h4>0</h4>
-                            <span class="text-muted">No shows</span>
-                        </div>
-                    </div>
-                </div>
+                <div class="white-box text-center">
+                    <input data-plugin="knob" data-width="150" data-height="150" data-min="0" data-fgColor="#fb9678" data-displayPrevious=true data-angleOffset=-125 data-angleArc=250 value="{{analyticsData.noShow}}" />
+                    <h5 class="text-muted m-t-10">No Shows</h5> </div>
             </div>
         </div>
-        <!-- .row -->
+        <!--<div class="row">-->
+            <!--<div class="col-md-3 col-sm-6">-->
+                <!--<div class="white-box">-->
+                    <!--<div class="r-icon-stats">-->
+                        <!--<i class="ti-user bg-megna"></i>-->
+                        <!--<div class="bodystate">-->
+                            <!--<h4>22</h4>-->
+                            <!--<span class="text-muted">Total Patient</span>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col-md-3 col-sm-6">-->
+                <!--<div class="white-box">-->
+                    <!--<div class="r-icon-stats">-->
+                        <!--<i class="ti-shopping-cart bg-info"></i>-->
+                        <!--<div class="bodystate">-->
+                            <!--<h4>10</h4>-->
+                            <!--<span class="text-muted">Portal-Visits</span>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col-md-3 col-sm-6">-->
+                <!--<div class="white-box">-->
+                    <!--<div class="r-icon-stats">-->
+                        <!--<i class="ti-wallet bg-success"></i>-->
+                        <!--<div class="bodystate">-->
+                            <!--<h4>16</h4>-->
+                            <!--<span class="text-muted">Walk-in</span>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col-md-3 col-sm-6">-->
+                <!--<div class="white-box">-->
+                    <!--<div class="r-icon-stats">-->
+                        <!--<i class="ti-wallet bg-inverse"></i>-->
+                        <!--<div class="bodystate">-->
+                            <!--<h4>0</h4>-->
+                            <!--<span class="text-muted">No shows</span>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; .row &ndash;&gt;-->
         <div class="row">
             <div class="col-md-4 col-sm-12 col-xs-12">
                 <div class="white-box">
                     <h3 class="box-title">
+                        {{!-- <small class="pull-right m-t-10 text-success">
+                            <i class="fa fa-sort-asc"></i> 18% High then last month
+                        </small>  --}}
                         Average Waiting Time
                     </h3>
+                    {{!-- <div class="stats-row">
+                        <div class="stat-item">
+                            <h6>Overall</h6>
+                            <b>80.40%</b>
+                        </div>
+                        <div class="stat-item">
+                            <h6>Montly</h6>
+                            <b>15.40%</b>
+                        </div>
+                        <div class="stat-item">
+                            <h6>Day</h6>
+                            <b>5.50%</b>
+                        </div>
+                    </div> --}}
                     <div id="sparkline8" class="minus-mar"></div>
                 </div>
             </div>
             <div class="col-md-4 col-sm-12 col-xs-12">
                 <div class="white-box">
                     <h3 class="box-title">
+                        {{!-- <small class="pull-right m-t-10 text-danger">
+                            <i class="fa fa-sort-desc"></i> 18% less then last month
+                        </small> --}}
                         Average Treatment Time
                     </h3>
+                    {{!-- <div class="stats-row">
+                        <div class="stat-item">
+                            <h6>Overall</h6>
+                            <b>80.40%</b>
+                        </div>
+                        <div class="stat-item">
+                            <h6>Montly</h6>
+                            <b>15.40%</b>
+                        </div>
+                        <div class="stat-item">
+                            <h6>Day</h6>
+                            <b>5.50%</b>
+                        </div>
+                    </div> --}}
                     <div id="sparkline9" class="minus-mar"></div>
                 </div>
             </div>
             <div class="col-md-4 col-sm-12 col-xs-12">
                 <div class="white-box">
                     <h3 class="box-title">
+                        {{!-- <small class="pull-right m-t-10 text-success">
+                            <i class="fa fa-sort-asc"></i> 18% High then last month
+                        </small> --}}
                         Average Visit Time
                     </h3>
+                    {{!-- <div class="stats-row">
+                        <div class="stat-item">
+                            <h6>Overall Growth</h6>
+                            <b>80.40%</b>
+                        </div>
+                        <div class="stat-item">
+                            <h6>Montly</h6>
+                            <b>15.40%</b>
+                        </div>
+                        <div class="stat-item">
+                            <h6>Day</h6>
+                            <b>5.50%</b>
+                        </div>
+                    </div> --}}
                     <div id="sparkline10" class="minus-mar"></div>
                 </div>
             </div>
@@ -103,12 +175,28 @@
                     <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                         <div class="white-box">
                             <h3 class="box-title">Visit Vs Previous Month</h3>
+                            {{!-- <ul class="list-inline text-center">
+                                <li>
+                                    <h5><i class="fa fa-circle m-r-5" style="color: #00bfc7;"></i>OPD</h5>
+                                </li>
+                                <li>
+                                    <h5><i class="fa fa-circle m-r-5" style="color: #b4becb;"></i>ICU</h5>
+                                </li>
+                            </ul> --}}
                             <div id="morris-area-chart1" style="height: 370px;"></div>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                         <div class="white-box">
                             <h3 class="box-title">New Patient 30 Days</h3>
+                            {{!-- <ul class="list-inline text-center">
+                                <li>
+                                    <h5><i class="fa fa-circle m-r-5" style="color: #00bfc7;"></i>OPD</h5>
+                                </li>
+                                <li>
+                                    <h5><i class="fa fa-circle m-r-5" style="color: #b4becb;"></i>ICU</h5>
+                                </li>
+                            </ul> --}}
                             <div id="morris-area-chart" style="height: 370px;"></div>
                         </div>
                     </div>
@@ -120,12 +208,28 @@
                     <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                         <div class="white-box">
                             <h3 class="box-title">Diagnosis</h3>
+                            {{!-- <ul class="list-inline text-center">
+                                <li>
+                                    <h5><i class="fa fa-circle m-r-5" style="color: #00bfc7;"></i>OPD</h5>
+                                </li>
+                                <li>
+                                    <h5><i class="fa fa-circle m-r-5" style="color: #b4becb;"></i>ICU</h5>
+                                </li>
+                            </ul> --}}
                             <div id="morris-area-chart1" style="height: 370px;"></div>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                         <div class="white-box">
                             <h3 class="box-title">Patient Referrals</h3>
+                            {{!-- <ul class="list-inline text-center">
+                                <li>
+                                    <h5><i class="fa fa-circle m-r-5" style="color: #00bfc7;"></i>OPD</h5>
+                                </li>
+                                <li>
+                                    <h5><i class="fa fa-circle m-r-5" style="color: #b4becb;"></i>ICU</h5>
+                                </li>
+                            </ul> --}}
                            <div id="morris-area-chart3" style="height: 340px; position: relative;">
                         </div>
                     </div>
@@ -136,6 +240,7 @@
 
         <!-- /.container-fluid -->
         {{>footer}}
+    </div>
     </div>
     <!-- /#page-wrapper -->
 </div>
@@ -316,3 +421,10 @@
 
 <script src="./js/analytics.js"></script>
 <script src="../plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
+    <!--jquery knob -->
+    <script src="../plugins/bower_components/knob/jquery.knob.js"></script>
+    <script>
+        $(function() {
+            $('[data-plugin="knob"]').knob({'readOnly': true});
+        });
+    </script>
