@@ -20,7 +20,9 @@ const patientSchema = mongoose.Schema({
     _queueId: {
         type: String,
         ref: 'Queue'
-    }
+    }, 
+    waittime: String,
+    referredTo: String
 });
 
 const Patient = module.exports = mongoose.model('Patient', patientSchema);
