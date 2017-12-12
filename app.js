@@ -11,8 +11,8 @@ passport = require('passport');
 var flash = require('connect-flash');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
+var moment = require('moment');
 const port = 8083;
-
 
 // import
 const config = require('./config/database');
@@ -318,7 +318,24 @@ app.get('/profile', isLoggedIn,(req,res)=>{
     res.render('profile',{title:'Profile'});
 });
 app.get('/analytics', isLoggedIn,(req,res)=>{
-    res.render('analytics',{title:'Analytics',analyticsData:analytics});
+    var result = [];
+    var startDate = moment().subtract(5, 'months').format('YYYY,MM,DD');
+    var endDate = moment().add(1,'day').format('YYYY,MM,DD');
+     Patient.getVisitGraph(startDate,endDate,(err,data)=>{
+         if(err){
+             throw err;
+         }
+         else{
+         for(i=0;i< data.length;i++)
+         {
+              d = data[i];
+             result.push({period:moment(d._id.month, 'MM').format('MMM'),OPD:d.visits});
+         }
+
+    res.render('analytics',{title:'Analytics',analyticsData:analytics,newVisitAnalytics:result});
+          
+         }
+        });
 });
 app.get('/referralconnect', isLoggedIn,(req,res)=>{
     res.render('referralconnect',{title:'Referral Connect'});

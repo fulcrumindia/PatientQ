@@ -44,3 +44,14 @@ module.exports.addPatient = (patient,callback) => {
 module.exports.updatePatientDetails = (_id,patient,options,callback) => {
     Patient.findByIdAndUpdate(_id, patient, options, callback);
 }
+
+//get Patient Analytics
+module.exports.getVisitGraph = (startDate,endDate,callback) => {
+    Patient.aggregate([
+{ $match : { enterdate : {"$gte": new Date(startDate), "$lte": new Date(endDate)} } },
+{ $project: { month: {$month: '$enterdate'},createdAt:'$enterdate' }},
+{$group:{_id:{month:"$month"},visits:{$sum:1}}},
+{ $sort : { "_id.month" : 1} }
+],callback);
+}
+

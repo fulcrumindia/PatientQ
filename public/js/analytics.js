@@ -31,10 +31,10 @@ Morris.Line({
 
 Morris.Bar({
     element: 'morris-area-chart1',
-    data: chartAnalytics.visit,
+    data: visitAnalytics,
     xkey: 'period',
-    ykeys: ['OPD', 'ICU'],
-    labels: ['X', 'Y'],
+    ykeys: ['OPD'],
+    labels: ['X'],
     pointSize: 0,
    
     pointStrokeColors:['#469fb4', '#01c0c8'],
